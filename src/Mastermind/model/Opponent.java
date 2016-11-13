@@ -8,6 +8,6 @@ public class Opponent {
     }
 
     public int getRowLength() {
-        return 0;
+        return 4;
     }
 }
