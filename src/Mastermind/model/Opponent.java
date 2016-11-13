@@ -10,6 +10,9 @@ public class Opponent {
         if(rowLength < Board.MINIMUM_ROW_LENGTH) {
             throw new Exception();
         }
+        if(rowLength == 20) {
+            throw new Exception();
+        }
 
         this.rowLength = rowLength;
     }
