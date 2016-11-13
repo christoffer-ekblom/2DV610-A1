@@ -30,4 +30,16 @@ public class OpponentTest {
             //ok
         }
     }
+
+    @Test
+    public void shouldThrowExceptionIfTheOpponentHasTooLargeRowLength() throws Exception {
+        int rowLength = 20;
+
+        try {
+            opponent = new Opponent(rowLength);
+            fail();
+        } catch (Exception e) {
+            //ok
+        }
+    }
 }
