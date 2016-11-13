@@ -3,11 +3,13 @@ package Mastermind.model;
 
 
 public class Opponent {
-    public Opponent(int rowLength) {
+    private int rowLength;
 
+    public Opponent(int rowLength) {
+        this.rowLength = rowLength;
     }
 
     public int getRowLength() {
-        return 4;
+        return this.rowLength;
     }
 }
