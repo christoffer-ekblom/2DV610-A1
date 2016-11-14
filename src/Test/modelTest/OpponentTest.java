@@ -9,21 +9,17 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class OpponentTest {
-
-    private Opponent opponent;
-    private int notInitializedInteger;
-
     @Test
     public void shouldFailIfTheOpponentHasTheWrongRowLength() throws Exception {
         int rowLength = 4;
-        opponent = new Opponent(rowLength);
+        Opponent opponent = new Opponent(rowLength);
         Assert.assertEquals(rowLength, opponent.getRowLength());
     }
 
     @Test
     public void shouldFailIfTheDefaultRowLengthIsNotSet() throws Exception {
-        opponent = new Opponent();
-        boolean rowLengthIsNotSet = opponent.getRowLength() == this.notInitializedInteger;
+        Opponent opponent = new Opponent();
+        boolean rowLengthIsNotSet = opponent.getRowLength() == 0;
         Assert.assertFalse(rowLengthIsNotSet);
     }
 
@@ -32,7 +28,7 @@ public class OpponentTest {
         int rowLength = 0;
 
         try {
-            opponent = new Opponent(rowLength);
+            Opponent opponent = new Opponent(rowLength);
             fail();
         } catch (Exception e) {
             //ok
@@ -44,7 +40,7 @@ public class OpponentTest {
         int rowLength = 20;
 
         try {
-            opponent = new Opponent(rowLength);
+            Opponent opponent = new Opponent(rowLength);
             fail();
         } catch (Exception e) {
             //ok

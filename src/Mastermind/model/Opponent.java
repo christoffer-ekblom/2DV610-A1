@@ -7,7 +7,7 @@ public class Opponent {
     private int rowLength;
 
     public Opponent() {
-        this.rowLength = 1;
+        this.rowLength = Board.DEFAULT_ROW_LENGTH;
     }
 
     public Opponent(int rowLength) throws Exception {
