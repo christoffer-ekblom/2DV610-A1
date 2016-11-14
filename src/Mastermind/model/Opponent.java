@@ -7,7 +7,7 @@ public class Opponent {
     private int rowLength;
 
     public Opponent() {
-
+        this.rowLength = 1;
     }
 
     public Opponent(int rowLength) throws Exception {
