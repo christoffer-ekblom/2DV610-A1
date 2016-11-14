@@ -11,12 +11,20 @@ import org.junit.Test;
 public class OpponentTest {
 
     private Opponent opponent;
+    private int notInitializedInteger;
 
     @Test
     public void shouldFailIfTheOpponentHasTheWrongRowLength() throws Exception {
         int rowLength = 4;
         opponent = new Opponent(rowLength);
         Assert.assertEquals(rowLength, opponent.getRowLength());
+    }
+
+    @Test
+    public void shouldFailIfTheDefaultRowLengthIsNotSet() throws Exception {
+        opponent = new Opponent();
+        boolean rowLengthIsNotSet = opponent.getRowLength() == this.notInitializedInteger;
+        Assert.assertFalse(rowLengthIsNotSet);
     }
 
     @Test
