@@ -12,6 +12,6 @@ public class Board {
     }
 
     public int getRowLength() {
-        return 0;
+        return this.rowLength;
     }
 }
