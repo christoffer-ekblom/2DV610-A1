@@ -1,6 +1,8 @@
 package Test.modelTest;
 
 import Mastermind.model.KeyPeg;
+import static org.junit.Assert.*;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,6 +41,17 @@ public class RowTest {
         List<SymbolPeg> expected = this.symbolPegs;
         List<SymbolPeg> actual = row.getSymbolPegs();
         Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldThrowAnExceptionIfSymbolPegIsEmpty() {
+        try {
+            new Row(new LinkedList<SymbolPeg>(), this.keyPegs);
+            fail();
+        }
+        catch (Exception e) {
+            //ok
+        }
     }
 
     @Test
