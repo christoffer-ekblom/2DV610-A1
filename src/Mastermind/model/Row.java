@@ -11,6 +11,11 @@ public class Row {
     }
 
     public List<SymbolPeg> getSymbolPegs() {
-        return new LinkedList<SymbolPeg>();
+        List<SymbolPeg> symbolPegs = new LinkedList<SymbolPeg>();
+        symbolPegs.add(SymbolPeg.King);
+        symbolPegs.add(SymbolPeg.Queen);
+        symbolPegs.add(SymbolPeg.Diamond);
+        symbolPegs.add(SymbolPeg.Heart);
+        return symbolPegs;
     }
 }
