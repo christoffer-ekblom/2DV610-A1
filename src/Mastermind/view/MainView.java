@@ -18,6 +18,6 @@ public class MainView implements IView {
     }
 
     public void showQuitMessage() {
-        // TODO: Implement this!
+        out.println(this.QUIT);
     }
 }
