@@ -17,7 +17,7 @@ public class RowTest {
     List<KeyPeg> keyPegs;
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         List<SymbolPeg> symbolPegs = new LinkedList<SymbolPeg>();
         symbolPegs.add(SymbolPeg.King);
         symbolPegs.add(SymbolPeg.Queen);
