@@ -10,17 +10,16 @@ import java.io.PrintStream;
 public class MainViewTest {
 
     private MainView sut;
+    private PrintStream printStream;
 
     @Before
     public void setUp() {
-
+        printStream = mock(PrintStream.class);
+        sut = new MainView(printStream);
     }
 
     @Test
     public void shouldShowMainMenu() {
-        PrintStream printStream = mock(PrintStream.class);
-        sut = new MainView(printStream);
-
         sut.showMainMenu();
 
         verify(printStream).println(sut.MENU);
@@ -28,9 +27,6 @@ public class MainViewTest {
 
     @Test
     public void shouldShowQuitMessage() {
-        PrintStream printStream = mock(PrintStream.class);
-        sut = new MainView(printStream);
-
         sut.showQuitMessage();
 
         verify(printStream).println(sut.QUIT);

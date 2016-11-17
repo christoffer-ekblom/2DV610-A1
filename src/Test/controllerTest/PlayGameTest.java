@@ -14,12 +14,13 @@ public class PlayGameTest {
     }
 
     @Test
-    public void shouldShowMainMenu() {
+    public void shouldShowMainMenuAndQuit() {
         IView view = mock(MainView.class);
         PlayGame sut = new PlayGame(view);
 
         sut.run();
 
         verify(view).showMainMenu();
+        verify(view).showQuitMessage();
     }
 }
