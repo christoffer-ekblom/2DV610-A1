@@ -44,6 +44,14 @@ public class RowTest {
     }
 
     @Test
+    public void constructorShouldWorkWithOnlyFirstArgument() throws Exception {
+        Row row = new Row(this.symbolPegs);
+        List<SymbolPeg> expected = this.symbolPegs;
+        List<SymbolPeg> actual = row.getSymbolPegs();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldThrowAnExceptionIfSymbolPegIsEmpty() {
         try {
             new Row(new LinkedList<SymbolPeg>(), this.keyPegs);
