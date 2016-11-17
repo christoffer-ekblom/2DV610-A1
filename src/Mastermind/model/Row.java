@@ -8,6 +8,7 @@ public class Row {
 
     public Row(List<SymbolPeg> symbolPegs, List<KeyPeg> keyPegs) {
         this.symbolPegs = symbolPegs;
+        this.keyPegs = keyPegs;
     }
 
     public List<SymbolPeg> getSymbolPegs() {
@@ -15,10 +16,6 @@ public class Row {
     }
 
     public List<KeyPeg> getKeyPegs() {
-        List<KeyPeg> keyPegs = new LinkedList<KeyPeg>();
-        keyPegs.add(KeyPeg.Black);
-        keyPegs.add(KeyPeg.Black);
-        keyPegs.add(KeyPeg.White);
-        return keyPegs;
+        return this.keyPegs;
     }
 }
