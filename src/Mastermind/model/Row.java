@@ -15,6 +15,10 @@ public class Row {
     }
 
     public List<KeyPeg> getKeyPegs() {
-        return new LinkedList<KeyPeg>();
+        List<KeyPeg> keyPegs = new LinkedList<KeyPeg>();
+        keyPegs.add(KeyPeg.Black);
+        keyPegs.add(KeyPeg.Black);
+        keyPegs.add(KeyPeg.White);
+        return keyPegs;
     }
 }
