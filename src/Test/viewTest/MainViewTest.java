@@ -25,4 +25,14 @@ public class MainViewTest {
 
         verify(printStream).println(sut.MENU);
     }
+
+    @Test
+    public void shouldShowQuitMessage() {
+        PrintStream printStream = mock(PrintStream.class);
+        sut = new MainView(printStream);
+
+        sut.showQuitMessage();
+
+        verify(printStream).println(sut.QUIT);
+    }
 }
