@@ -1,23 +1,23 @@
 package Test;
 
 import Mastermind.*;
-import Mastermind.controller.PlayGame;
+import Mastermind.controller.*;
+
 import org.junit.*;
 
 import static org.mockito.Mockito.*;
 
 public class MastermindTest {
 
-    private Mastermind sut;
-
     @Before
     public void setUp() {
-        sut = new Mastermind();
+        // Empty
     }
 
     @Test
     public void shouldExecuteRun() {
         PlayGame game = mock(PlayGame.class);
+        Mastermind sut = new Mastermind(game);
 
         sut.initialize();
 
