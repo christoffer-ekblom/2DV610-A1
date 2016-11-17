@@ -25,4 +25,20 @@ public class RowTest {
 
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void shouldReturnSameListOfKeyPegsAsWeCalledFromConstructor() {
+        List<SymbolPeg> symbolPegs = new LinkedList<SymbolPeg>();
+
+        List<KeyPeg> expected = new LinkedList<KeyPeg>();
+        expected.add(KeyPeg.Black);
+        expected.add(KeyPeg.Black);
+        expected.add(KeyPeg.White);
+
+        Row row = new Row(symbolPegs, expected);
+
+        List<KeyPeg> actual = row.getKeyPegs();
+
+        Assert.assertEquals(expected, actual);
+    }
 }

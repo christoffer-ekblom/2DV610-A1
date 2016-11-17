@@ -13,4 +13,8 @@ public class Row {
     public List<SymbolPeg> getSymbolPegs() {
         return this.symbolPegs;
     }
+
+    public List<KeyPeg> getKeyPegs() {
+        return new LinkedList<KeyPeg>();
+    }
 }
