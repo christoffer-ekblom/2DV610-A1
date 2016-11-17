@@ -12,5 +12,7 @@ public class PlayGame {
 
     public void run() {
         this.view.showMainMenu();
+
+        this.view.showQuitMessage();
     }
 }
