@@ -13,6 +13,6 @@ public class MainView implements IView {
     }
 
     public void showMainMenu() {
-        // TODO: Implement this!
+        out.println(this.MENU);
     }
 }
