@@ -7,15 +7,10 @@ public class Row {
     private List<KeyPeg> keyPegs;
 
     public Row(List<SymbolPeg> symbolPegs, List<KeyPeg> keyPegs) {
-
+        this.symbolPegs = symbolPegs;
     }
 
     public List<SymbolPeg> getSymbolPegs() {
-        List<SymbolPeg> symbolPegs = new LinkedList<SymbolPeg>();
-        symbolPegs.add(SymbolPeg.King);
-        symbolPegs.add(SymbolPeg.Queen);
-        symbolPegs.add(SymbolPeg.Diamond);
-        symbolPegs.add(SymbolPeg.Heart);
-        return symbolPegs;
+        return this.symbolPegs;
     }
 }
