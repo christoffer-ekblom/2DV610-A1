@@ -11,6 +11,6 @@ public class PlayGame {
     }
 
     public void run() {
-        // TODO: Implement this!
+        this.view.showMainMenu();
     }
 }
