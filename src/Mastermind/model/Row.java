@@ -7,7 +7,7 @@ public class Row {
     private List<KeyPeg> keyPegs;
 
     public Row(List<SymbolPeg> symbolPegs) throws Exception {
-        
+        this.symbolPegs = symbolPegs;
     }
 
     public Row(List<SymbolPeg> symbolPegs, List<KeyPeg> keyPegs) throws Exception {
