@@ -1,6 +1,7 @@
 package Mastermind;
 
 import Mastermind.controller.*;
+import Mastermind.view.*;
 
 public class Mastermind {
 
@@ -11,7 +12,9 @@ public class Mastermind {
     }
 
     public static void main(String[] a_args) {
-        Mastermind mastermind = new Mastermind(new PlayGame());
+        IView view = new MainView();
+        PlayGame playGame = new PlayGame(view);
+        Mastermind mastermind = new Mastermind(playGame);
 
         mastermind.initialize();
     }
