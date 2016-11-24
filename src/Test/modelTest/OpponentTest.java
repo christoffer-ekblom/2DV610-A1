@@ -58,7 +58,6 @@ public class OpponentTest {
     public void shouldGetDifferentHints() {
         Opponent opponent = new Opponent();
         Row row = new RowStub();
-        List<SymbolPeg> symbolPegs = row.getSymbolPegs();
         List<List<KeyPeg>> hintHistory = new LinkedList<List<KeyPeg>>();
 
         // should definitely give us different hints after 100 iterations
@@ -69,15 +68,18 @@ public class OpponentTest {
         }
 
         List<KeyPeg> firstHint = hintHistory.get(0);
-        boolean isSame = false;
+        List<Boolean> isSame = new LinkedList<Boolean>();
 
         for(List<KeyPeg> hint : hintHistory) {
             if(!firstHint.equals(hintHistory)) {
-                isSame = true;
+                isSame.add(true);
+            }
+            else {
+                isSame.add(false);
             }
         }
 
-        Assert.assertFalse(isSame);
+        Assert.assertTrue(isSame.contains(false));
     }
 
     private class RowStub extends Row {
