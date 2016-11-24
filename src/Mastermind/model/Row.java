@@ -6,6 +6,10 @@ public class Row {
     private List<SymbolPeg> symbolPegs;
     private List<KeyPeg> keyPegs;
 
+    public Row() {
+
+    }
+
     public Row(List<SymbolPeg> symbolPegs) throws Exception {
         this(symbolPegs, new LinkedList<KeyPeg>());
     }

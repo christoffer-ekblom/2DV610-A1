@@ -1,12 +1,19 @@
 package Test.modelTest;
 
+import Mastermind.model.KeyPeg;
 import Mastermind.model.Opponent;
 
 import static org.junit.Assert.*;
+
+import Mastermind.model.Row;
+import Mastermind.model.SymbolPeg;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class OpponentTest {
     @Test
@@ -44,6 +51,44 @@ public class OpponentTest {
             fail();
         } catch (Exception e) {
             //ok
+        }
+    }
+
+    @Test
+    public void shouldGetDifferentHints() {
+        Opponent opponent = new Opponent();
+        Row row = new RowStub();
+        List<SymbolPeg> symbolPegs = row.getSymbolPegs();
+        List<List<KeyPeg>> hintHistory = new LinkedList<List<KeyPeg>>();
+
+        // should definitely give us different hints after 100 iterations
+        for(int i = 0; i < 100; i++) {
+            opponent.generateSecretCode();
+            opponent.checkGuess(row);
+            hintHistory.add(opponent.getHint());
+        }
+
+        List<KeyPeg> firstHint = hintHistory.get(0);
+        boolean isSame = false;
+
+        for(List<KeyPeg> hint : hintHistory) {
+            if(!firstHint.equals(hintHistory)) {
+                isSame = true;
+            }
+        }
+
+        Assert.assertFalse(isSame);
+    }
+
+    private class RowStub extends Row {
+        @Override
+        public List<SymbolPeg> getSymbolPegs() {
+            List<SymbolPeg> symbolPegs = new LinkedList<SymbolPeg>();
+            symbolPegs.add(SymbolPeg.Heart);
+            symbolPegs.add(SymbolPeg.Heart);
+            symbolPegs.add(SymbolPeg.Heart);
+            symbolPegs.add(SymbolPeg.Heart);
+            return symbolPegs;
         }
     }
 }

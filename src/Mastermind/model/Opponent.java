@@ -2,6 +2,8 @@ package Mastermind.model;
 
 import Mastermind.model.Board;
 
+import java.util.*;
+
 public class Opponent {
 
     private int rowLength;
@@ -20,5 +22,17 @@ public class Opponent {
 
     public int getRowLength() {
         return this.rowLength;
+    }
+
+    public void generateSecretCode() {
+
+    }
+
+    public void checkGuess(Row guess) {
+
+    }
+
+    public List<KeyPeg> getHint() {
+        return new LinkedList<KeyPeg>();
     }
 }
