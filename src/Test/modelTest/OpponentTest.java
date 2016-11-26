@@ -88,6 +88,7 @@ public class OpponentTest {
     @Test
     public void shouldGenerateNotNullSecretCode() throws Exception {
         Opponent opponent = new Opponent();
+        opponent.generateSecretCode();
         Field field = Opponent.class.getDeclaredField("secretCode");
         field.setAccessible(true);
         Row row = (Row)field.get(opponent);
