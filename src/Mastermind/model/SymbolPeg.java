@@ -15,6 +15,10 @@ public enum SymbolPeg {
     }
 
     public static SymbolPeg getByValue(int index) throws Exception {
+        if(index >= SymbolPeg.values().length) {
+            throw new Exception();
+        }
+
         return SymbolPeg.Diamond;
     }
 }
