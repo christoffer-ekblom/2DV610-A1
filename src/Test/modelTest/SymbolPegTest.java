@@ -34,7 +34,7 @@ public class SymbolPegTest {
     }
 
     @Test
-    public void shouldReturnListOfSymbolPegs() {
+    public void shouldReturnListOfSymbolPegs() throws Exception {
         List<SymbolPeg> expected = new ArrayList<>();
         expected.add(SymbolPeg.Diamond);
         expected.add(SymbolPeg.Heart);

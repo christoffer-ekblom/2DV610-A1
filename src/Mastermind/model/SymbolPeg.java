@@ -27,12 +27,13 @@ public enum SymbolPeg {
         throw new Exception();
     }
 
-    public static List<SymbolPeg> getByInteger(List<Integer> ints) {
+    public static List<SymbolPeg> getByInteger(List<Integer> ints) throws Exception {
         List<SymbolPeg> pegs = new ArrayList<>();
-        pegs.add(SymbolPeg.Diamond);
-        pegs.add(SymbolPeg.Heart);
-        pegs.add(SymbolPeg.Club);
-        pegs.add(SymbolPeg.Spade);
+
+        for(int value : ints) {
+            pegs.add(getByValue(value));
+        }
+
         return pegs;
     }
 }
