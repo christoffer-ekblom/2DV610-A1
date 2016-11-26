@@ -24,8 +24,13 @@ public class Opponent {
         return this.rowLength;
     }
 
-    public void generateSecretCode() {
-        secretCode = new Row();
+    public void generateSecretCode() throws Exception {
+        List<SymbolPeg> symbolPegs = new ArrayList<>();
+        symbolPegs.add(SymbolPeg.Diamond);
+        symbolPegs.add(SymbolPeg.Diamond);
+        symbolPegs.add(SymbolPeg.Diamond);
+        symbolPegs.add(SymbolPeg.Diamond);
+        secretCode = new Row(symbolPegs);
     }
 
     public void checkGuess(Row guess) {

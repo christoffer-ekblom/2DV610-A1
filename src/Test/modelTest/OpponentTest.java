@@ -58,7 +58,7 @@ public class OpponentTest {
     }
 
     @Test
-    public void shouldGetDifferentHints() {
+    public void shouldGetDifferentHints() throws Exception {
         Opponent opponent = new Opponent();
         Row row = new RowStub();
         List<List<KeyPeg>> hintHistory = new LinkedList<List<KeyPeg>>();
@@ -93,6 +93,27 @@ public class OpponentTest {
         field.setAccessible(true);
         Row row = (Row)field.get(opponent);
         Assert.assertNotNull(row);
+    }
+
+    @Test
+    public void shouldGenerateDifferentSecretCodes() throws Exception {
+        Opponent opponent = new Opponent();
+        Field field = Opponent.class.getDeclaredField("secretCode");
+        field.setAccessible(true);
+        Row rowTest;
+
+        opponent.generateSecretCode();
+        Row firstRow = (Row)field.get(opponent);
+        int counter = 0;
+
+        do {
+            opponent.generateSecretCode();
+            rowTest = (Row)field.get(opponent);
+
+            if(counter++ >= 100) {
+                fail();
+            }
+        } while(rowTest.equals(firstRow));
     }
 
     private class RowStub extends Row {
