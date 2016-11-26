@@ -19,6 +19,6 @@ public enum SymbolPeg {
             throw new Exception();
         }
 
-        return SymbolPeg.Diamond;
+        return SymbolPeg.Club;
     }
 }
