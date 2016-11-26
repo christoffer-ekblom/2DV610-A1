@@ -15,10 +15,12 @@ public enum SymbolPeg {
     }
 
     public static SymbolPeg getByValue(int index) throws Exception {
-        if(index >= SymbolPeg.values().length) {
-            throw new Exception();
+        for (SymbolPeg peg: SymbolPeg.values()) {
+            if (peg.value == index) {
+                return peg;
+            }
         }
 
-        return SymbolPeg.Club;
+        throw new Exception();
     }
 }
