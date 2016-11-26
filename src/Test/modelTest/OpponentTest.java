@@ -70,7 +70,6 @@ public class OpponentTest {
             hintHistory.add(opponent.getHint());
         }
 
-        List<KeyPeg> firstHint = hintHistory.get(0);
         List<Boolean> isSame = new LinkedList<Boolean>();
 
         for(List<KeyPeg> hint : hintHistory) {
