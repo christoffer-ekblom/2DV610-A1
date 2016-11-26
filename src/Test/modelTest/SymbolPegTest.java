@@ -1,6 +1,7 @@
 package Test.modelTest;
 
 import Mastermind.model.SymbolPeg;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -18,5 +19,13 @@ public class SymbolPegTest {
             //ok
         }
 
+    }
+
+    @Test
+    public void shouldReturnCorrectSymbolPeg() throws Exception {
+        SymbolPeg expected = SymbolPeg.Club;
+        SymbolPeg actual = SymbolPeg.getByValue(2);
+
+        Assert.assertEquals(expected, actual);
     }
 }
