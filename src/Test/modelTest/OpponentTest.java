@@ -71,15 +71,15 @@ public class OpponentTest {
         List<Boolean> isSame = new LinkedList<Boolean>();
 
         for(List<KeyPeg> hint : hintHistory) {
-            if(!firstHint.equals(hintHistory)) {
+            if(!firstHint.equals(hint)) {
                 isSame.add(true);
             }
             else {
                 isSame.add(false);
             }
         }
-
-        Assert.assertTrue(isSame.contains(false));
+        boolean containsFalse = isSame.contains(false);
+        Assert.assertTrue(containsFalse);
     }
 
     private class RowStub extends Row {
