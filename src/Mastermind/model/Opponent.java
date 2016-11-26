@@ -4,6 +4,8 @@ import Mastermind.model.Board;
 
 import java.util.*;
 
+import static java.util.Collections.shuffle;
+
 public class Opponent {
     private int rowLength;
     private Row secretCode;
@@ -25,12 +27,15 @@ public class Opponent {
     }
 
     public void generateSecretCode() throws Exception {
-        List<SymbolPeg> symbolPegs = new ArrayList<>();
-        symbolPegs.add(SymbolPeg.Diamond);
-        symbolPegs.add(SymbolPeg.Diamond);
-        symbolPegs.add(SymbolPeg.Diamond);
-        symbolPegs.add(SymbolPeg.Diamond);
-        secretCode = new Row(symbolPegs);
+        List<Integer> secret = new ArrayList<>();
+        for (int i = 0; i < rowLength; i++) {
+            secret.add(i);
+        }
+        shuffle(secret);
+
+        List<SymbolPeg> symbolPegs = SymbolPeg.getByInteger(secret);
+
+        this.secretCode = new Row(symbolPegs);
     }
 
     public void checkGuess(Row guess) {
