@@ -19,8 +19,8 @@ public class RowTest {
     @Before
     public void setUp() throws Exception {
         List<SymbolPeg> symbolPegs = new LinkedList<SymbolPeg>();
-        symbolPegs.add(SymbolPeg.King);
-        symbolPegs.add(SymbolPeg.Queen);
+        symbolPegs.add(SymbolPeg.Spade);
+        symbolPegs.add(SymbolPeg.Club);
         symbolPegs.add(SymbolPeg.Diamond);
         symbolPegs.add(SymbolPeg.Heart);
 
