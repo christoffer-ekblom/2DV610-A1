@@ -5,8 +5,8 @@ import Mastermind.model.Board;
 import java.util.*;
 
 public class Opponent {
-
     private int rowLength;
+    private Row secretCode;
 
     public Opponent() {
         this.rowLength = Board.DEFAULT_ROW_LENGTH;
@@ -25,7 +25,6 @@ public class Opponent {
     }
 
     public void generateSecretCode() {
-
     }
 
     public void checkGuess(Row guess) {

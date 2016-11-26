@@ -11,7 +11,10 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import sun.jvm.hotspot.debugger.cdbg.Sym;
+import java.lang.reflect.Field;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -80,6 +83,15 @@ public class OpponentTest {
         }
         boolean containsFalse = isSame.contains(false);
         Assert.assertTrue(containsFalse);
+    }
+
+    @Test
+    public void shouldGenerateNotNullSecretCode() throws Exception {
+        Opponent opponent = new Opponent();
+        Field field = Opponent.class.getDeclaredField("secretCode");
+        field.setAccessible(true);
+        Row row = (Row)field.get(opponent);
+        Assert.assertNotNull(row);
     }
 
     private class RowStub extends Row {
