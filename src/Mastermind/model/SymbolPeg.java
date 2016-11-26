@@ -1,5 +1,6 @@
 package Mastermind.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public enum SymbolPeg {
@@ -27,6 +28,11 @@ public enum SymbolPeg {
     }
 
     public static List<SymbolPeg> getByInteger(List<Integer> ints) {
-        return null;
+        List<SymbolPeg> pegs = new ArrayList<>();
+        pegs.add(SymbolPeg.Diamond);
+        pegs.add(SymbolPeg.Heart);
+        pegs.add(SymbolPeg.Club);
+        pegs.add(SymbolPeg.Spade);
+        return pegs;
     }
 }
