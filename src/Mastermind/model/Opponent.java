@@ -25,6 +25,7 @@ public class Opponent {
     }
 
     public void generateSecretCode() {
+        secretCode = new Row();
     }
 
     public void checkGuess(Row guess) {
