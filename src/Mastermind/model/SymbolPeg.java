@@ -1,5 +1,7 @@
 package Mastermind.model;
 
+import java.util.List;
+
 public enum SymbolPeg {
     Diamond("d", 0),
     Heart("h", 1),
@@ -22,5 +24,9 @@ public enum SymbolPeg {
         }
 
         throw new Exception();
+    }
+
+    public static List<SymbolPeg> getByInteger(List<Integer> ints) {
+        return null;
     }
 }

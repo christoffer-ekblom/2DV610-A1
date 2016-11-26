@@ -4,6 +4,10 @@ import Mastermind.model.SymbolPeg;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class SymbolPegTest {
@@ -25,6 +29,25 @@ public class SymbolPegTest {
     public void shouldReturnCorrectSymbolPeg() throws Exception {
         SymbolPeg expected = SymbolPeg.Club;
         SymbolPeg actual = SymbolPeg.getByValue(2);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldReturnListOfSymbolPegs() {
+        List<SymbolPeg> expected = new ArrayList<>();
+        expected.add(SymbolPeg.Diamond);
+        expected.add(SymbolPeg.Heart);
+        expected.add(SymbolPeg.Club);
+        expected.add(SymbolPeg.Spade);
+
+        List<Integer> ints = new ArrayList<Integer>();
+        ints.add(0);
+        ints.add(1);
+        ints.add(2);
+        ints.add(3);
+
+        List<SymbolPeg> actual = SymbolPeg.getByInteger(ints);
 
         Assert.assertEquals(expected, actual);
     }
