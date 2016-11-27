@@ -44,10 +44,24 @@ public class Opponent {
         }
 
         List<KeyPeg> hint = new ArrayList<>();
+        boolean[] used = new boolean[4];
 
         for (int i = 0; i < guess.getSymbolPegs().size(); i++) {
             if (guess.getSymbolPegs().get(i) == secretCode.getSymbolPegs().get(i)) {
                 hint.add(KeyPeg.Black);
+                used[i] = true;
+            }
+        }
+
+        for (int i = 0; i < 4; i++) {
+            for (int k = 0; k < 4; k++) {
+                if (used[k])
+                    continue;
+                if (guess.getSymbolPegs().get(i) == secretCode.getSymbolPegs().get(k)) {
+                    used[k] = true;
+                    hint.add(KeyPeg.White);
+                    break;
+                }
             }
         }
 
