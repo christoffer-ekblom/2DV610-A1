@@ -17,11 +17,11 @@ public class BoardTest {
     }
 
     @Test
-    public void shouldInstantiateWithDefaultTableLength() throws Exception {
+    public void shouldInstantiateWithZeroLength() throws Exception {
         Field field = sut.getClass().getDeclaredField("guessHistory");
         field.setAccessible(true);
 
-        Assert.assertEquals(Board.DEFAULT_TABLE_LENGTH, ((List<Row>)field.get(sut)).size());
+        Assert.assertEquals(0, ((List<Row>)field.get(sut)).size());
     }
 
     @Test

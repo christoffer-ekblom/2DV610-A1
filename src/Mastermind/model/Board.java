@@ -17,4 +17,8 @@ public class Board {
     public List<Row> getGuessHistory() {
         return guessHistory;
     }
+
+    public void addGuessToBoard(Row guess) {
+
+    }
 }
