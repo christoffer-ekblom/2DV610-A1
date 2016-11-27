@@ -16,7 +16,7 @@ public class PlayGameTest {
     }
 
     @Test
-    public void shouldShowWelcomeMessageInstructionsAndQuit() {
+    public void shouldShowWelcomeMessageInstructionsAndQuit() throws Exception {
         MainView view = mock(MainView.class);
         Game game = mock(Game.class);
         PlayGame sut = new PlayGame(view, game);

@@ -15,7 +15,7 @@ public class MastermindTest {
     }
 
     @Test
-    public void shouldExecuteRun() {
+    public void shouldExecuteRun() throws Exception {
         PlayGame game = mock(PlayGame.class);
         Mastermind sut = new Mastermind(game);
 

@@ -12,7 +12,7 @@ public class Mastermind {
         this.playGame = game;
     }
 
-    public static void main(String[] a_args) {
+    public static void main(String[] a_args) throws Exception {
         MainView view = new MainView(System.out);
         Opponent opponent = new Opponent();
         Board board = new Board();
@@ -23,7 +23,7 @@ public class Mastermind {
         mastermind.initialize();
     }
 
-    public void initialize() {
+    public void initialize() throws Exception {
         this.playGame.run();
     }
 }

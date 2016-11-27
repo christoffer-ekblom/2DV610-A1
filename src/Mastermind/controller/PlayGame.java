@@ -13,7 +13,7 @@ public class PlayGame {
         this.game = game;
     }
 
-    public void run() {
+    public void run() throws Exception {
         this.view.showWelcomeMessage();
         this.view.showBoard(this.game.getBoard());
         this.view.showInstructions();
@@ -23,7 +23,9 @@ public class PlayGame {
         this.view.showQuitMessage();
     }
 
-    public boolean playGame() {
+    public boolean playGame() throws Exception {
+        game.newGame();
+
         return false;
     }
 }
