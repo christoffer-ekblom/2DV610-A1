@@ -50,4 +50,12 @@ public class SymbolPegTest {
 
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void shouldReturnCorrectShortValue() {
+        String expected = "h";
+        String actual = SymbolPeg.Club.getShortCode();
+
+        Assert.assertEquals(expected, actual);
+    }
 }
