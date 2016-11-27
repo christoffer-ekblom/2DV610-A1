@@ -14,6 +14,7 @@ public class PlayGame {
     }
 
     public void run() {
+        this.view.showWelcomeMessage();
         this.view.showInstructions();
 
         this.view.showQuitMessage();
