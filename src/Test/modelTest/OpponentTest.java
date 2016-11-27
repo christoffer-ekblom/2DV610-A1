@@ -3,6 +3,7 @@ package Test.modelTest;
 import Mastermind.model.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.lang.reflect.Field;
 
@@ -10,6 +11,7 @@ import org.junit.*;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class OpponentTest {
 
@@ -129,5 +131,26 @@ public class OpponentTest {
         } catch (Exception e) {
             // Ok
         }
+    }
+
+    @Test
+    public void shouldGenerateOneBlackPeg() throws Exception {
+        Row guess = mock(Row.class);
+
+        List<SymbolPeg> guesses = new ArrayList<>(Arrays.asList(SymbolPeg.Diamond, SymbolPeg.Heart, SymbolPeg.Heart, SymbolPeg.Heart));
+        List<SymbolPeg> secrets = new ArrayList<>(Arrays.asList(SymbolPeg.Diamond, SymbolPeg.Club, SymbolPeg.Club, SymbolPeg.Club));
+        List<KeyPeg> expected = new ArrayList<>(Arrays.asList(KeyPeg.Black));
+
+        when(guess.getSymbolPegs()).thenReturn(guesses);
+
+        Field field = Opponent.class.getDeclaredField("secretCode");
+        field.setAccessible(true);
+        field.set(sut, new Row(secrets));
+
+        sut.checkGuess(guess);
+
+        List<KeyPeg> actual = guess.getKeyPegs();
+
+        Assert.assertEquals(expected, actual);
     }
 }
