@@ -17,6 +17,9 @@ public class MainView {
         this.out = output;
     }
 
+    public void showWelcomeMessage() {
+    }
+
     public void showInstructions() {
         out.println(this.INSTRUCTIONS);
     }

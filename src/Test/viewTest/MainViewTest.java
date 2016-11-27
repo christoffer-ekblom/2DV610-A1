@@ -20,6 +20,13 @@ public class MainViewTest {
     }
 
     @Test
+    public void shouldShowWelcomeMessage() {
+        sut.showWelcomeMessage();
+
+        verify(printStream).println(sut.WELCOME);
+    }
+
+    @Test
     public void shouldShowInstructions() {
         sut.showInstructions();
 
