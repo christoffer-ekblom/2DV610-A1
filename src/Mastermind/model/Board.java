@@ -15,6 +15,6 @@ public class Board {
     }
 
     public List<Row> getGuessHistory() {
-        return null;
+        return guessHistory;
     }
 }
