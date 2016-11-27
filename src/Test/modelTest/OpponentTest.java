@@ -9,6 +9,7 @@ import java.lang.reflect.Field;
 import org.junit.*;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
 
 public class OpponentTest {
 
@@ -58,7 +59,7 @@ public class OpponentTest {
 
     @Test
     public void shouldGetDifferentHints() throws Exception {
-        Row row = new Row();
+        Row row = mock(Row.class);
         List<List<KeyPeg>> hintHistory = new ArrayList<>();
 
         // should definitely give us different hints after 100 iterations
@@ -121,7 +122,7 @@ public class OpponentTest {
     }
 
     @Test
-    public void shouldThrowExceptionIfEmptyRow () {
+    public void shouldThrowExceptionIfEmptyRow() {
         try {
             sut.checkGuess(new Row());
             fail();
