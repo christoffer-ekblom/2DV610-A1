@@ -15,6 +15,6 @@ public class Game {
     }
 
     public Board getBoard() {
-        return null;
+        return this.board;
     }
 }
