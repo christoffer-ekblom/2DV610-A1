@@ -1,10 +1,7 @@
 package Mastermind.model;
 
-import com.intellij.ide.ui.AppearanceOptionsTopHitProvider;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import static java.util.Collections.shuffle;
 
