@@ -26,9 +26,9 @@ public class PlayGameTest {
         sut.run();
 
         verify(view).showWelcomeMessage();
-        verify(view).showBoard(game.getBoard());
-        verify(view).showInstructions();
-        verify(view).showQuitMessage();
+        verify(view, atLeast(1)).showBoard(game.getBoard());
+        verify(view, atLeast(1)).showInstructions();
+        verify(view, atLeast(1)).showQuitMessage();
     }
 
     @Test
@@ -52,6 +52,6 @@ public class PlayGameTest {
 
         sut.playGame();
 
-        verify(game, times(Board.DEFAULT_TABLE_LENGTH)).isGameOver();
+        verify(game, times(10)).isGameOver();
     }
 }

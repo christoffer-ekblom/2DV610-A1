@@ -22,15 +22,17 @@ public class PlayGame {
     }
 
     public void playGame() throws Exception {
+        int i = 0;
         game.newGame();
 
         while (!game.isGameOver()) {
             this.view.showBoard(this.game.getBoard());
             this.view.showInstructions();
+            this.game.getBoard().addGuessToBoard(new Row());
 
-            //this.game.getBoard().addGuessToBoard(new Row());
-
-            break;
+            if(++i == 10) {
+                break;
+            }
         }
     }
 }
