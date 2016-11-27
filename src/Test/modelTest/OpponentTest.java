@@ -106,4 +106,16 @@ public class OpponentTest {
             }
         } while (rowTest.equals(firstRow));
     }
+
+    @Test
+    public void shouldThrowExceptionIfNullRow() {
+        Opponent sut = new Opponent();
+
+        try {
+            sut.checkGuess(null);
+            fail();
+        } catch (Exception e) {
+            // Ok
+        }
+    }
 }
