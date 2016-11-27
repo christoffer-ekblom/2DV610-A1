@@ -35,7 +35,8 @@ public class MainViewTest {
 
     @Test
     public void shouldDisplayEmptyBoard() {
-        String actual = sut.getBoardGraphics();
+        Board board = mock(Board.class);
+        String actual = sut.getBoardGraphics(board);
 
         String expected = "? ? ? ?";
 

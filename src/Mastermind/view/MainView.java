@@ -1,8 +1,9 @@
 package Mastermind.view;
 
-import Mastermind.model.Board;
+import Mastermind.model.*;
 
 import java.io.PrintStream;
+import java.util.*;
 
 public class MainView {
 
@@ -23,13 +24,21 @@ public class MainView {
         out.println(this.QUIT);
     }
 
-    public String getBoardGraphics() {
-        String result =  "? ? ? ?";
+    public String getBoardGraphics(Board board) {
+        List<String> result = new ArrayList<>();
 
-        for (int i = 0; i < Board.DEFAULT_TABLE_LENGTH; i++) {
-            result += "\n_ _ _ _";
+        for (Row guess : board.getGuessHistory()) {
+            result.add(guess.toString());
         }
 
-        return result;
+        while (result.size() < Board.DEFAULT_TABLE_LENGTH) {
+            result.add("_ _ _ _");
+        }
+
+        result.add("? ? ? ?");
+
+        Collections.reverse(result);
+
+        return String.join("\n", result);
     }
 }
