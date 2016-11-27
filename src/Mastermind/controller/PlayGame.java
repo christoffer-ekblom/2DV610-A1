@@ -15,17 +15,20 @@ public class PlayGame {
 
     public void run() throws Exception {
         this.view.showWelcomeMessage();
-        this.view.showBoard(this.game.getBoard());
-        this.view.showInstructions();
 
-        while (playGame());
+        playGame();
 
         this.view.showQuitMessage();
     }
 
-    public boolean playGame() throws Exception {
+    public void playGame() throws Exception {
         game.newGame();
 
-        return false;
+        while (true) {
+            this.view.showBoard(this.game.getBoard());
+            this.view.showInstructions();
+
+            break;
+        }
     }
 }
