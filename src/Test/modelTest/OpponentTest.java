@@ -109,11 +109,15 @@ public class OpponentTest {
 
     @Test
     public void shouldGenerateOneBlackPeg() throws Exception {
-        Row guess = spy(Row.class);
-
         List<SymbolPeg> guesses = new ArrayList<>(Arrays.asList(SymbolPeg.Diamond, SymbolPeg.Heart, SymbolPeg.Heart, SymbolPeg.Heart));
         List<SymbolPeg> secrets = new ArrayList<>(Arrays.asList(SymbolPeg.Diamond, SymbolPeg.Club, SymbolPeg.Club, SymbolPeg.Club));
         List<KeyPeg> expected = new ArrayList<>(Arrays.asList(KeyPeg.Black));
+
+        checkHint(guesses, secrets, expected);
+    }
+
+    private void checkHint(List<SymbolPeg> guesses, List<SymbolPeg> secrets, List<KeyPeg> expected) throws Exception {
+        Row guess = spy(Row.class);
 
         when(guess.getSymbolPegs()).thenReturn(guesses);
 
