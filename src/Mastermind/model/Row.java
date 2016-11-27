@@ -50,4 +50,9 @@ public class Row {
 
         return this.getSymbolPegs().equals(row.getSymbolPegs());
     }
+
+    @Override
+    public String toString() {
+        return "";
+    }
 }

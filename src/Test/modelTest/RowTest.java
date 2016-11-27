@@ -3,6 +3,7 @@ package Test.modelTest;
 import Mastermind.model.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.*;
@@ -64,6 +65,17 @@ public class RowTest {
     public void shouldReturnSameListOfKeyPegsAsWeCalledFromConstructor() {
         List<KeyPeg> expected = this.keyPegs;
         List<KeyPeg> actual = row.getKeyPegs();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldDisplayCorrectStringRepresentation() throws Exception {
+        List<SymbolPeg> pegs = new ArrayList<>(Arrays.asList(SymbolPeg.Heart, SymbolPeg.Club, SymbolPeg.Diamond, SymbolPeg.Spade));
+        Row sut = new Row(pegs);
+
+        String actual = sut.toString();
+        String expected = "h c d s";
+
         Assert.assertEquals(expected, actual);
     }
 }
