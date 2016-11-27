@@ -1,6 +1,7 @@
 package Mastermind.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Board {
@@ -11,6 +12,6 @@ public class Board {
     private List<Row> guessHistory;
 
     public Board() {
-        guessHistory = new ArrayList<>();
+        guessHistory = Arrays.asList(new Row[DEFAULT_TABLE_LENGTH]);
     }
 }
