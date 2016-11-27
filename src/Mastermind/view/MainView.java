@@ -1,5 +1,7 @@
 package Mastermind.view;
 
+import Mastermind.model.Board;
+
 import java.io.PrintStream;
 
 public class MainView {
@@ -22,6 +24,12 @@ public class MainView {
     }
 
     public String getBoardGraphics() {
-        return "";
+        String result =  "? ? ? ?";
+
+        for (int i = 0; i < Board.DEFAULT_TABLE_LENGTH; i++) {
+            result += "\n_ _ _ _";
+        }
+
+        return result;
     }
 }
