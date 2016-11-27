@@ -16,7 +16,7 @@ public class GameTest {
     @Before
     public void setUp() throws Exception {
         opponent = mock(Opponent.class);
-        board = mock(Board.class);
+        board = spy(Board.class);
         sut = new Game(opponent, board);
     }
 
@@ -32,5 +32,14 @@ public class GameTest {
         Board actual = sut.getBoard();
 
         Assert.assertEquals(board, actual);
+    }
+
+    @Test
+    public void shouldReportGameOver() {
+        while (board.getGuessHistory().size() < 10) {
+            board.addGuessToBoard(new Row());
+        }
+
+        Assert.assertTrue(sut.isGameOver());
     }
 }
