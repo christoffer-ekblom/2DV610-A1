@@ -12,7 +12,7 @@ public class Mastermind {
     }
 
     public static void main(String[] a_args) {
-        IView view = new MainView(System.out);
+        MainView view = new MainView(System.out);
         PlayGame playGame = new PlayGame(view);
         Mastermind mastermind = new Mastermind(playGame);
 

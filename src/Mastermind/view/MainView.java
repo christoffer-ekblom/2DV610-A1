@@ -2,7 +2,7 @@ package Mastermind.view;
 
 import java.io.PrintStream;
 
-public class MainView implements IView {
+public class MainView {
 
     private PrintStream out;
 

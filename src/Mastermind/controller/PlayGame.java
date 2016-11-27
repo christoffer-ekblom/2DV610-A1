@@ -1,12 +1,12 @@
 package Mastermind.controller;
 
-import Mastermind.view.IView;
+import Mastermind.view.*;
 
 public class PlayGame {
 
-    private IView view;
+    private MainView view;
 
-    public PlayGame(IView view) {
+    public PlayGame(MainView view) {
         this.view = view;
     }
 
