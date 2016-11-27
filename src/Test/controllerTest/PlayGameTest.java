@@ -1,6 +1,7 @@
 package Test.controllerTest;
 
 import Mastermind.controller.*;
+import Mastermind.model.*;
 import Mastermind.view.*;
 
 import org.junit.*;
@@ -17,7 +18,8 @@ public class PlayGameTest {
     @Test
     public void shouldShowMainMenuAndQuit() {
         MainView view = mock(MainView.class);
-        PlayGame sut = new PlayGame(view);
+        Game game = mock(Game.class);
+        PlayGame sut = new PlayGame(view, game);
 
         sut.run();
 
