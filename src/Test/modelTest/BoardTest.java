@@ -23,4 +23,11 @@ public class BoardTest {
 
         Assert.assertEquals(Board.DEFAULT_TABLE_LENGTH, ((List<Row>)field.get(sut)).size());
     }
+
+    @Test
+    public void shouldGetGuessHistory() {
+        List<Row> actual = sut.getGuessHistory();
+
+        Assert.assertNotNull(actual);
+    }
 }

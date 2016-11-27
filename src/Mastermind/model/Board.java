@@ -13,4 +13,8 @@ public class Board {
     public Board() {
         guessHistory = Arrays.asList(new Row[DEFAULT_TABLE_LENGTH]);
     }
+
+    public List<Row> getGuessHistory() {
+        return null;
+    }
 }
