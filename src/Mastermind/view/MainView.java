@@ -6,7 +6,7 @@ public class MainView {
 
     private PrintStream out;
 
-    public final static String MENU = "Mastermind Main Menu\n1. Start new game\n2. Quit";
+    public final static String MENU = "Welcome to a game of Mastermind\n\nInstructions:\nEnter your guess by typing \"rgby\" for (r)ed, (g)reen, (b)lue and (y)ellow.";
     public final static String QUIT = "Thank you for playing Mastermind and welcome back anytime";
 
     public MainView(PrintStream output) {
