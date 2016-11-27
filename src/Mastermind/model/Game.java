@@ -19,6 +19,6 @@ public class Game {
     }
 
     public boolean isGameOver() {
-        return false;
+        return true;
     }
 }
