@@ -24,7 +24,7 @@ public class PlayGame {
     public void playGame() throws Exception {
         game.newGame();
 
-        while (true) {
+        while (!game.isGameOver()) {
             this.view.showBoard(this.game.getBoard());
             this.view.showInstructions();
 

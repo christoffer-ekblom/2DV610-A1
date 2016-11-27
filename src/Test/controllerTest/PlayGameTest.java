@@ -39,4 +39,15 @@ public class PlayGameTest {
 
         verify(game).newGame();
     }
+
+    @Test
+    public void shouldRunAsManyTimesAsMaxGuesses() throws Exception {
+        MainView view = mock(MainView.class);
+        Game game = mock(Game.class);
+        PlayGame sut = new PlayGame(view, game);
+
+        sut.playGame();
+
+        verify(game, times(Board.DEFAULT_TABLE_LENGTH)).isGameOver();
+    }
 }
