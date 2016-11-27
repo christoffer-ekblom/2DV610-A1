@@ -59,31 +59,6 @@ public class OpponentTest {
     }
 
     @Test
-    public void shouldGetDifferentHints() throws Exception {
-        Row row = mock(Row.class);
-        List<List<KeyPeg>> hintHistory = new ArrayList<>();
-
-        // should definitely give us different hints after 100 iterations
-        for (int i = 0; i < 100; i++) {
-            sut.generateSecretCode();
-            sut.checkGuess(row);
-            hintHistory.add(sut.getHint());
-        }
-
-        List<Boolean> isSame = new ArrayList<>();
-
-        for (List<KeyPeg> hint : hintHistory) {
-            for (int i = 0; i < hintHistory.size(); i++) {
-                isSame.add(hint.equals(hintHistory.get(i)));
-            }
-        }
-
-        boolean containsFalse = isSame.contains(false);
-
-        Assert.assertTrue(containsFalse);
-    }
-
-    @Test
     public void shouldGenerateNotNullSecretCode() throws Exception {
         sut.generateSecretCode();
         Field field = Opponent.class.getDeclaredField("secretCode");

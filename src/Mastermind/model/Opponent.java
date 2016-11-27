@@ -56,21 +56,4 @@ public class Opponent {
 
         guess.setHint(hint);
     }
-
-    public List<KeyPeg> getHint() {
-        List<KeyPeg> keyPeg = new ArrayList<>();
-        Random random = new Random();
-        int num;
-
-        for (int i = 0; i < rowLength; i++) {
-            num = random.nextInt(2);
-            if (num == 0) {
-                keyPeg.add(KeyPeg.Black);
-            } else {
-                keyPeg.add(KeyPeg.White);
-            }
-        }
-
-        return keyPeg;
-    }
 }
