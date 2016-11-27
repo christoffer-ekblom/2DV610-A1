@@ -27,6 +27,14 @@ public class MainViewTest {
     }
 
     @Test
+    public void shouldShowBoard() {
+        Board board = mock(Board.class);
+        sut.showBoard();
+
+        verify(printStream).println(sut.getBoardGraphics(board));
+    }
+
+    @Test
     public void shouldShowInstructions() {
         sut.showInstructions();
 

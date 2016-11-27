@@ -25,6 +25,10 @@ public class MainView {
         out.println(this.INSTRUCTIONS);
     }
 
+    public void showBoard() {
+        out.println("");
+    }
+
     public void showQuitMessage() {
         out.println(this.QUIT);
     }
