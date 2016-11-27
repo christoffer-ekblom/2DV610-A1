@@ -30,4 +30,15 @@ public class BoardTest {
 
         Assert.assertNotNull(actual);
     }
+
+    @Test
+    public void shouldAddGuessToBoard() {
+        int expected = sut.getGuessHistory().size() + 1;
+
+        sut.addGuessToBoard(new Row());
+
+        int actual = sut.getGuessHistory().size();
+
+        Assert.assertEquals(expected, actual);
+    }
 }
