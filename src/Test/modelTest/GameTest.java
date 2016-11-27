@@ -17,7 +17,7 @@ public class GameTest {
     @Test
     public void shouldCallGenerateSecretCode() throws Exception {
         Opponent opponent = mock(Opponent.class);
-        Game sut = new Game();
+        Game sut = new Game(opponent);
 
         sut.newGame();
 
