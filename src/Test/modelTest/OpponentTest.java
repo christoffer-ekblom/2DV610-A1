@@ -119,4 +119,14 @@ public class OpponentTest {
             // Ok
         }
     }
+
+    @Test
+    public void shouldThrowExceptionIfEmptyRow () {
+        try {
+            sut.checkGuess(new Row());
+            fail();
+        } catch (Exception e) {
+            // Ok
+        }
+    }
 }
