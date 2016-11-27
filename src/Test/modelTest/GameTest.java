@@ -9,17 +9,19 @@ import static org.mockito.Mockito.*;
 
 public class GameTest {
 
+    private Opponent opponent;
+    private Board board;
+    private Game sut;
+
     @Before
     public void setUp() throws Exception {
-
+        opponent = mock(Opponent.class);
+        board = mock(Board.class);
+        sut = new Game(opponent, board);
     }
 
     @Test
     public void shouldCallGenerateSecretCode() throws Exception {
-        Opponent opponent = mock(Opponent.class);
-        Board board = mock(Board.class);
-        Game sut = new Game(opponent, board);
-
         sut.newGame();
 
         verify(opponent).generateSecretCode();
@@ -27,10 +29,6 @@ public class GameTest {
 
     @Test
     public void shouldReturnABoard() {
-        Opponent opponent = mock(Opponent.class);
-        Board board = mock(Board.class);
-        Game sut = new Game(opponent, board);
-
         Board actual = sut.getBoard();
 
         Assert.assertEquals(board, actual);
