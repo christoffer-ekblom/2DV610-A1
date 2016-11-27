@@ -2,6 +2,7 @@ package Test.controllerTest;
 
 import Mastermind.controller.*;
 import Mastermind.view.*;
+
 import org.junit.*;
 
 import static org.mockito.Mockito.*;

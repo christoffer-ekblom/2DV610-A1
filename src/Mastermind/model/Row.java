@@ -1,8 +1,10 @@
 package Mastermind.model;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Row {
+
     private List<SymbolPeg> symbolPegs;
     private List<KeyPeg> keyPegs;
 
@@ -11,11 +13,11 @@ public class Row {
     }
 
     public Row(List<SymbolPeg> symbolPegs) throws Exception {
-        this(symbolPegs, new LinkedList<KeyPeg>());
+        this(symbolPegs, new ArrayList<>());
     }
 
     public Row(List<SymbolPeg> symbolPegs, List<KeyPeg> keyPegs) throws Exception {
-        if(symbolPegs.isEmpty()) {
+        if (symbolPegs.isEmpty()) {
             throw new Exception();
         }
 
@@ -33,14 +35,14 @@ public class Row {
 
     @Override
     public boolean equals(Object obj) {
-        if(this == obj) {
+        if (this == obj) {
             return true;
         }
-        if(this == null || obj == null || this.getClass() != obj.getClass()) {
+        if (this == null || obj == null || this.getClass() != obj.getClass()) {
             return false;
         }
 
-        Row row = (Row)obj;
+        Row row = (Row) obj;
 
         return this.getSymbolPegs().equals(row.getSymbolPegs());
     }

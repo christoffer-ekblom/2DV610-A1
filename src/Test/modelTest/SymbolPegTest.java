@@ -1,16 +1,16 @@
 package Test.modelTest;
 
 import Mastermind.model.SymbolPeg;
-import org.junit.Assert;
-import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
+
+import org.junit.*;
 
 import static org.junit.Assert.*;
 
 public class SymbolPegTest {
+
     @Test
     public void shouldThrowExceptionWhenInvalidInput() {
         int tooLargeNumber = 10000;
@@ -18,8 +18,7 @@ public class SymbolPegTest {
         try {
             SymbolPeg.getByValue(tooLargeNumber);
             fail();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             //ok
         }
 

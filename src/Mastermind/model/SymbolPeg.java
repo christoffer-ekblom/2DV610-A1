@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public enum SymbolPeg {
+
     Diamond("d", 0),
     Heart("h", 1),
     Club("c", 2),
@@ -18,7 +19,7 @@ public enum SymbolPeg {
     }
 
     public static SymbolPeg getByValue(int index) throws Exception {
-        for (SymbolPeg peg: SymbolPeg.values()) {
+        for (SymbolPeg peg : SymbolPeg.values()) {
             if (peg.value == index) {
                 return peg;
             }
@@ -30,7 +31,7 @@ public enum SymbolPeg {
     public static List<SymbolPeg> getByInteger(List<Integer> ints) throws Exception {
         List<SymbolPeg> pegs = new ArrayList<>();
 
-        for(int value : ints) {
+        for (int value : ints) {
             pegs.add(getByValue(value));
         }
 

@@ -1,12 +1,13 @@
 package Mastermind.model;
 
-import Mastermind.model.Board;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 import static java.util.Collections.shuffle;
 
 public class Opponent {
+
     private int rowLength;
     private Row secretCode;
 
@@ -15,7 +16,7 @@ public class Opponent {
     }
 
     public Opponent(int rowLength) throws Exception {
-        if(rowLength < Board.MINIMUM_ROW_LENGTH || rowLength > Board.MAXIMUM_ROW_LENGTH) {
+        if (rowLength < Board.MINIMUM_ROW_LENGTH || rowLength > Board.MAXIMUM_ROW_LENGTH) {
             throw new Exception();
         }
 
@@ -43,16 +44,15 @@ public class Opponent {
     }
 
     public List<KeyPeg> getHint() {
-        List<KeyPeg> keyPeg = new LinkedList<KeyPeg>();
+        List<KeyPeg> keyPeg = new ArrayList<>();
         Random random = new Random();
         int num;
 
-        for(int i = 0; i < rowLength; i++) {
+        for (int i = 0; i < rowLength; i++) {
             num = random.nextInt(2);
-            if(num == 0) {
+            if (num == 0) {
                 keyPeg.add(KeyPeg.Black);
-            }
-            else {
+            } else {
                 keyPeg.add(KeyPeg.White);
             }
         }

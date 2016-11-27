@@ -1,24 +1,23 @@
 package Test.modelTest;
 
-import Mastermind.model.KeyPeg;
-import static org.junit.Assert.*;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import java.util.*;
+import Mastermind.model.*;
 
-import Mastermind.model.SymbolPeg;
-import Mastermind.model.Row;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.*;
+
+import static org.junit.Assert.*;
 
 public class RowTest {
+
     Row row;
     List<SymbolPeg> symbolPegs;
     List<KeyPeg> keyPegs;
 
     @Before
     public void setUp() throws Exception {
-        List<SymbolPeg> symbolPegs = new LinkedList<SymbolPeg>();
+        List<SymbolPeg> symbolPegs = new ArrayList<>();
         symbolPegs.add(SymbolPeg.Spade);
         symbolPegs.add(SymbolPeg.Club);
         symbolPegs.add(SymbolPeg.Diamond);
@@ -26,7 +25,7 @@ public class RowTest {
 
         this.symbolPegs = symbolPegs;
 
-        List<KeyPeg> keyPegs = new LinkedList<KeyPeg>();
+        List<KeyPeg> keyPegs = new ArrayList<>();
         keyPegs.add(KeyPeg.Black);
         keyPegs.add(KeyPeg.Black);
         keyPegs.add(KeyPeg.White);
@@ -54,10 +53,9 @@ public class RowTest {
     @Test
     public void shouldThrowAnExceptionIfSymbolPegIsEmpty() {
         try {
-            new Row(new LinkedList<SymbolPeg>(), this.keyPegs);
+            new Row(new ArrayList<>(), this.keyPegs);
             fail();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             //ok
         }
     }

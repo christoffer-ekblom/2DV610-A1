@@ -1,24 +1,17 @@
 package Test.modelTest;
 
-import Mastermind.model.KeyPeg;
-import Mastermind.model.Opponent;
+import Mastermind.model.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.lang.reflect.Field;
+
+import org.junit.*;
 
 import static org.junit.Assert.*;
 
-import Mastermind.model.Row;
-import Mastermind.model.SymbolPeg;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import sun.jvm.hotspot.debugger.cdbg.Sym;
-import java.lang.reflect.Field;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 public class OpponentTest {
+
     @Test
     public void shouldFailIfTheOpponentHasTheWrongRowLength() throws Exception {
         int rowLength = 4;
@@ -61,19 +54,19 @@ public class OpponentTest {
     public void shouldGetDifferentHints() throws Exception {
         Opponent opponent = new Opponent();
         Row row = new Row();
-        List<List<KeyPeg>> hintHistory = new LinkedList<List<KeyPeg>>();
+        List<List<KeyPeg>> hintHistory = new ArrayList<>();
 
         // should definitely give us different hints after 100 iterations
-        for(int i = 0; i < 100; i++) {
+        for (int i = 0; i < 100; i++) {
             opponent.generateSecretCode();
             opponent.checkGuess(row);
             hintHistory.add(opponent.getHint());
         }
 
-        List<Boolean> isSame = new LinkedList<Boolean>();
+        List<Boolean> isSame = new ArrayList<Boolean>();
 
-        for(List<KeyPeg> hint : hintHistory) {
-            for(int i = 0; i < hintHistory.size(); i++) {
+        for (List<KeyPeg> hint : hintHistory) {
+            for (int i = 0; i < hintHistory.size(); i++) {
                 isSame.add(hint.equals(hintHistory.get(i)));
             }
         }
@@ -89,7 +82,7 @@ public class OpponentTest {
         opponent.generateSecretCode();
         Field field = Opponent.class.getDeclaredField("secretCode");
         field.setAccessible(true);
-        Row row = (Row)field.get(opponent);
+        Row row = (Row) field.get(opponent);
         Assert.assertNotNull(row);
     }
 
@@ -101,16 +94,16 @@ public class OpponentTest {
         Row rowTest;
 
         opponent.generateSecretCode();
-        Row firstRow = (Row)field.get(opponent);
+        Row firstRow = (Row) field.get(opponent);
         int counter = 0;
 
         do {
             opponent.generateSecretCode();
-            rowTest = (Row)field.get(opponent);
+            rowTest = (Row) field.get(opponent);
 
-            if(counter++ >= 100) {
+            if (counter++ >= 100) {
                 fail();
             }
-        } while(rowTest.equals(firstRow));
+        } while (rowTest.equals(firstRow));
     }
 }
