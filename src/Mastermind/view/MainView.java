@@ -20,4 +20,8 @@ public class MainView {
     public void showQuitMessage() {
         out.println(this.QUIT);
     }
+
+    public String getBoardGraphics() {
+        return "";
+    }
 }

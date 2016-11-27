@@ -1,5 +1,6 @@
 package Test.viewTest;
 
+import Mastermind.model.Board;
 import Mastermind.view.*;
 
 import org.junit.*;
@@ -30,5 +31,18 @@ public class MainViewTest {
         sut.showQuitMessage();
 
         verify(printStream).println(sut.QUIT);
+    }
+
+    @Test
+    public void shouldDisplayEmptyBoard() {
+        String actual = sut.getBoardGraphics();
+
+        String expected = "? ? ? ?";
+
+        for (int i = 0; i < Board.DEFAULT_TABLE_LENGTH; i++) {
+            expected += "\n_ _ _ _";
+        }
+
+        Assert.assertEquals(expected, actual);
     }
 }
