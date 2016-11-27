@@ -28,4 +28,15 @@ public class PlayGameTest {
         verify(view).showInstructions();
         verify(view).showQuitMessage();
     }
+
+    @Test
+    public void shouldExecuteNewGame() throws Exception {
+        MainView view = mock(MainView.class);
+        Game game = mock(Game.class);
+        PlayGame sut = new PlayGame(view, game);
+
+        sut.playGame();
+
+        verify(game).newGame();
+    }
 }

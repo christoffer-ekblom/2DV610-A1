@@ -18,6 +18,12 @@ public class PlayGame {
         this.view.showBoard(this.game.getBoard());
         this.view.showInstructions();
 
+        while (playGame());
+
         this.view.showQuitMessage();
+    }
+
+    public boolean playGame() {
+        return false;
     }
 }
