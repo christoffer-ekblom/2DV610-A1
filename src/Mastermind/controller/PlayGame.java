@@ -28,6 +28,8 @@ public class PlayGame {
             this.view.showBoard(this.game.getBoard());
             this.view.showInstructions();
 
+            //this.game.getBoard().addGuessToBoard(new Row());
+
             break;
         }
     }

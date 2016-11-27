@@ -21,6 +21,8 @@ public class PlayGameTest {
         Game game = mock(Game.class);
         PlayGame sut = new PlayGame(view, game);
 
+        when(game.getBoard()).thenReturn(new Board());
+
         sut.run();
 
         verify(view).showWelcomeMessage();
@@ -35,6 +37,8 @@ public class PlayGameTest {
         Game game = mock(Game.class);
         PlayGame sut = new PlayGame(view, game);
 
+        when(game.getBoard()).thenReturn(new Board());
+
         sut.playGame();
 
         verify(game).newGame();
@@ -43,7 +47,7 @@ public class PlayGameTest {
     @Test
     public void shouldRunAsManyTimesAsMaxGuesses() throws Exception {
         MainView view = mock(MainView.class);
-        Game game = mock(Game.class);
+        Game game = spy(new Game(new Opponent(), new Board()));
         PlayGame sut = new PlayGame(view, game);
 
         sut.playGame();
