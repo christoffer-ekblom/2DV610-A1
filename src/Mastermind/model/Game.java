@@ -7,7 +7,7 @@ public class Game {
 
     public Game(Opponent opponent) {
         this.opponent = opponent;
-        board = new Board(Board.DEFAULT_ROW_LENGTH);
+        board = new Board();
     }
 
     public void newGame() throws Exception {

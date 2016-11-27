@@ -7,28 +7,11 @@ import static java.util.Collections.shuffle;
 
 public class Opponent {
 
-    private int rowLength;
     private Row secretCode;
-
-    public Opponent() {
-        this.rowLength = Board.DEFAULT_ROW_LENGTH;
-    }
-
-    public Opponent(int rowLength) throws Exception {
-        if (rowLength < Board.MINIMUM_ROW_LENGTH || rowLength > Board.MAXIMUM_ROW_LENGTH) {
-            throw new Exception();
-        }
-
-        this.rowLength = rowLength;
-    }
-
-    public int getRowLength() {
-        return this.rowLength;
-    }
 
     public void generateSecretCode() throws Exception {
         List<Integer> secret = new ArrayList<>();
-        for (int i = 0; i < rowLength; i++) {
+        for (int i = 0; i < Board.DEFAULT_ROW_LENGTH; i++) {
             secret.add(i);
         }
         shuffle(secret);
@@ -44,16 +27,16 @@ public class Opponent {
         }
 
         List<KeyPeg> hint = new ArrayList<>();
-        boolean[] used = new boolean[rowLength];
+        boolean[] used = new boolean[Board.DEFAULT_ROW_LENGTH];
 
-        for (int i = 0; i < rowLength; i++) {
+        for (int i = 0; i < Board.DEFAULT_ROW_LENGTH; i++) {
             if (guess.getSymbolPegs().get(i) == secretCode.getSymbolPegs().get(i)) {
                 hint.add(KeyPeg.Black);
                 used[i] = true;
                 continue;
             }
 
-            for (int j = 0; j < rowLength; j++) {
+            for (int j = 0; j < Board.DEFAULT_ROW_LENGTH; j++) {
                 if (used[j]) {
                     continue;
                 }

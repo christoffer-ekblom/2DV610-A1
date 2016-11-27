@@ -22,43 +22,6 @@ public class OpponentTest {
     }
 
     @Test
-    public void shouldFailIfTheOpponentHasTheWrongRowLength() throws Exception {
-        int rowLength = 4;
-        sut = new Opponent(rowLength);
-        Assert.assertEquals(rowLength, sut.getRowLength());
-    }
-
-    @Test
-    public void shouldFailIfTheDefaultRowLengthIsNotSet() throws Exception {
-        boolean rowLengthIsNotSet = sut.getRowLength() == 0;
-        Assert.assertFalse(rowLengthIsNotSet);
-    }
-
-    @Test
-    public void shouldThrowExceptionIfTheOpponentHasTooSmallRowLength() throws Exception {
-        int rowLength = 0;
-
-        try {
-            sut = new Opponent(rowLength);
-            fail();
-        } catch (Exception e) {
-            //ok
-        }
-    }
-
-    @Test
-    public void shouldThrowExceptionIfTheOpponentHasTooLargeRowLength() throws Exception {
-        int rowLength = 20;
-
-        try {
-            sut = new Opponent(rowLength);
-            fail();
-        } catch (Exception e) {
-            //ok
-        }
-    }
-
-    @Test
     public void shouldGenerateNotNullSecretCode() throws Exception {
         sut.generateSecretCode();
         Field field = Opponent.class.getDeclaredField("secretCode");
