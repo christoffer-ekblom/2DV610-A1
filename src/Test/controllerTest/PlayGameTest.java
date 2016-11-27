@@ -16,13 +16,14 @@ public class PlayGameTest {
     }
 
     @Test
-    public void shouldShowMainMenuAndQuit() {
+    public void shouldShowWelcomeMessageInstructionsAndQuit() {
         MainView view = mock(MainView.class);
         Game game = mock(Game.class);
         PlayGame sut = new PlayGame(view, game);
 
         sut.run();
 
+        verify(view).showWelcomeMessage();
         verify(view).showInstructions();
         verify(view).showQuitMessage();
     }
