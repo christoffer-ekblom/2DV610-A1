@@ -1,5 +1,7 @@
 package Mastermind.model;
 
+import com.intellij.ide.ui.AppearanceOptionsTopHitProvider;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -39,8 +41,10 @@ public class Opponent {
         this.secretCode = new Row(symbolPegs);
     }
 
-    public void checkGuess(Row guess) {
-
+    public void checkGuess(Row guess) throws Exception {
+        if (guess == null) {
+            throw new Exception();
+        }
     }
 
     public List<KeyPeg> getHint() {
