@@ -45,6 +45,16 @@ public class Opponent {
         if (guess == null || guess.getSymbolPegs() == null) {
             throw new Exception();
         }
+
+        List<KeyPeg> hint = new ArrayList<>();
+
+        for (int i = 0; i < guess.getSymbolPegs().size(); i++) {
+            if (guess.getSymbolPegs().get(i) == secretCode.getSymbolPegs().get(i)) {
+                hint.add(KeyPeg.Black);
+            }
+        }
+
+        guess.setHint(hint);
     }
 
     public List<KeyPeg> getHint() {

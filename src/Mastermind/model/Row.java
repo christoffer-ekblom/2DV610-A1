@@ -33,6 +33,10 @@ public class Row {
         return this.keyPegs;
     }
 
+    public void setHint(List<KeyPeg> hint) {
+        this.keyPegs = hint;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

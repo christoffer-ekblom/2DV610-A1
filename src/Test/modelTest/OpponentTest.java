@@ -10,8 +10,7 @@ import java.lang.reflect.Field;
 import org.junit.*;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class OpponentTest {
 
@@ -135,7 +134,7 @@ public class OpponentTest {
 
     @Test
     public void shouldGenerateOneBlackPeg() throws Exception {
-        Row guess = mock(Row.class);
+        Row guess = spy(Row.class);
 
         List<SymbolPeg> guesses = new ArrayList<>(Arrays.asList(SymbolPeg.Diamond, SymbolPeg.Heart, SymbolPeg.Heart, SymbolPeg.Heart));
         List<SymbolPeg> secrets = new ArrayList<>(Arrays.asList(SymbolPeg.Diamond, SymbolPeg.Club, SymbolPeg.Club, SymbolPeg.Club));
