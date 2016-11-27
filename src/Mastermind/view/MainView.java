@@ -25,8 +25,8 @@ public class MainView {
         out.println(this.INSTRUCTIONS);
     }
 
-    public void showBoard() {
-        out.println("");
+    public void showBoard(Board board) {
+        out.println(getBoardGraphics(board));
     }
 
     public void showQuitMessage() {
