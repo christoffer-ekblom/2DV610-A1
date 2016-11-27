@@ -24,6 +24,7 @@ public class PlayGameTest {
         sut.run();
 
         verify(view).showWelcomeMessage();
+        verify(view).showBoard(game.getBoard());
         verify(view).showInstructions();
         verify(view).showQuitMessage();
     }
