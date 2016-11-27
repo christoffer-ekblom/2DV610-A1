@@ -12,17 +12,23 @@ import static org.junit.Assert.*;
 
 public class OpponentTest {
 
+    Opponent sut;
+
+    @Before
+    public void setUp() {
+        sut = new Opponent();
+    }
+
     @Test
     public void shouldFailIfTheOpponentHasTheWrongRowLength() throws Exception {
         int rowLength = 4;
-        Opponent opponent = new Opponent(rowLength);
-        Assert.assertEquals(rowLength, opponent.getRowLength());
+        sut = new Opponent(rowLength);
+        Assert.assertEquals(rowLength, sut.getRowLength());
     }
 
     @Test
     public void shouldFailIfTheDefaultRowLengthIsNotSet() throws Exception {
-        Opponent opponent = new Opponent();
-        boolean rowLengthIsNotSet = opponent.getRowLength() == 0;
+        boolean rowLengthIsNotSet = sut.getRowLength() == 0;
         Assert.assertFalse(rowLengthIsNotSet);
     }
 
@@ -31,7 +37,7 @@ public class OpponentTest {
         int rowLength = 0;
 
         try {
-            Opponent opponent = new Opponent(rowLength);
+            sut = new Opponent(rowLength);
             fail();
         } catch (Exception e) {
             //ok
@@ -43,7 +49,7 @@ public class OpponentTest {
         int rowLength = 20;
 
         try {
-            Opponent opponent = new Opponent(rowLength);
+            sut = new Opponent(rowLength);
             fail();
         } catch (Exception e) {
             //ok
@@ -52,18 +58,17 @@ public class OpponentTest {
 
     @Test
     public void shouldGetDifferentHints() throws Exception {
-        Opponent opponent = new Opponent();
         Row row = new Row();
         List<List<KeyPeg>> hintHistory = new ArrayList<>();
 
         // should definitely give us different hints after 100 iterations
         for (int i = 0; i < 100; i++) {
-            opponent.generateSecretCode();
-            opponent.checkGuess(row);
-            hintHistory.add(opponent.getHint());
+            sut.generateSecretCode();
+            sut.checkGuess(row);
+            hintHistory.add(sut.getHint());
         }
 
-        List<Boolean> isSame = new ArrayList<Boolean>();
+        List<Boolean> isSame = new ArrayList<>();
 
         for (List<KeyPeg> hint : hintHistory) {
             for (int i = 0; i < hintHistory.size(); i++) {
@@ -78,28 +83,26 @@ public class OpponentTest {
 
     @Test
     public void shouldGenerateNotNullSecretCode() throws Exception {
-        Opponent opponent = new Opponent();
-        opponent.generateSecretCode();
+        sut.generateSecretCode();
         Field field = Opponent.class.getDeclaredField("secretCode");
         field.setAccessible(true);
-        Row row = (Row) field.get(opponent);
+        Row row = (Row) field.get(sut);
         Assert.assertNotNull(row);
     }
 
     @Test
     public void shouldGenerateDifferentSecretCodes() throws Exception {
-        Opponent opponent = new Opponent();
         Field field = Opponent.class.getDeclaredField("secretCode");
         field.setAccessible(true);
         Row rowTest;
 
-        opponent.generateSecretCode();
-        Row firstRow = (Row) field.get(opponent);
+        sut.generateSecretCode();
+        Row firstRow = (Row) field.get(sut);
         int counter = 0;
 
         do {
-            opponent.generateSecretCode();
-            rowTest = (Row) field.get(opponent);
+            sut.generateSecretCode();
+            rowTest = (Row) field.get(sut);
 
             if (counter++ >= 100) {
                 fail();
@@ -109,8 +112,6 @@ public class OpponentTest {
 
     @Test
     public void shouldThrowExceptionIfNullRow() {
-        Opponent sut = new Opponent();
-
         try {
             sut.checkGuess(null);
             fail();
