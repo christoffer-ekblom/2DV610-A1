@@ -42,7 +42,7 @@ public class Opponent {
     }
 
     public void checkGuess(Row guess) throws Exception {
-        if (guess == null) {
+        if (guess == null || guess.getSymbolPegs() == null) {
             throw new Exception();
         }
     }
