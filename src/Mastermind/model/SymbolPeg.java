@@ -39,6 +39,6 @@ public enum SymbolPeg {
     }
 
     public String getShortCode() {
-        return "";
+        return shortCode;
     }
 }
