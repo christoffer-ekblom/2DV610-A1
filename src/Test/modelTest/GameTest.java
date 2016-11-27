@@ -17,10 +17,22 @@ public class GameTest {
     @Test
     public void shouldCallGenerateSecretCode() throws Exception {
         Opponent opponent = mock(Opponent.class);
-        Game sut = new Game(opponent);
+        Board board = mock(Board.class);
+        Game sut = new Game(opponent, board);
 
         sut.newGame();
 
         verify(opponent).generateSecretCode();
+    }
+
+    @Test
+    public void shouldReturnABoard() {
+        Opponent opponent = mock(Opponent.class);
+        Board board = mock(Board.class);
+        Game sut = new Game(opponent, board);
+
+        Board actual = sut.getBoard();
+
+        Assert.assertEquals(board, actual);
     }
 }

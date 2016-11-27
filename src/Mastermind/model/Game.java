@@ -5,12 +5,16 @@ public class Game {
     private final Opponent opponent;
     private final Board board;
 
-    public Game(Opponent opponent) {
+    public Game(Opponent opponent, Board board) {
         this.opponent = opponent;
-        board = new Board();
+        this.board = board;
     }
 
     public void newGame() throws Exception {
         opponent.generateSecretCode();
+    }
+
+    public Board getBoard() {
+        return null;
     }
 }

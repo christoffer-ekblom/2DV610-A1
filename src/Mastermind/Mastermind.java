@@ -15,7 +15,8 @@ public class Mastermind {
     public static void main(String[] a_args) {
         MainView view = new MainView(System.out);
         Opponent opponent = new Opponent();
-        Game game = new Game(opponent);
+        Board board = new Board();
+        Game game = new Game(opponent, board);
         PlayGame playGame = new PlayGame(view, game);
         Mastermind mastermind = new Mastermind(playGame);
 
