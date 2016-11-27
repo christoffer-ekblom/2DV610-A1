@@ -23,7 +23,7 @@ public class PlayGameTest {
 
         sut.run();
 
-        verify(view).showMainMenu();
+        verify(view).showInstructions();
         verify(view).showQuitMessage();
     }
 }

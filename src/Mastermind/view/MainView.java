@@ -9,15 +9,16 @@ public class MainView {
 
     private PrintStream out;
 
-    public final static String MENU = MainView.menuText();
+    public final static String WELCOME = "Welcome to a game of Mastermind";
+    public final static String INSTRUCTIONS = MainView.menuText();
     public final static String QUIT = "Thank you for playing Mastermind and welcome back anytime";
 
     public MainView(PrintStream output) {
         this.out = output;
     }
 
-    public void showMainMenu() {
-        out.println(this.MENU);
+    public void showInstructions() {
+        out.println(this.INSTRUCTIONS);
     }
 
     public void showQuitMessage() {
@@ -43,8 +44,7 @@ public class MainView {
     }
 
     private static String menuText() {
-        String output = "Welcome to a game of Mastermind\n\n";
-        output += "Instructions:\nEnter your guess by typing ";
+        String output = "Instructions:\nEnter your guess by typing ";
         output += "\"";
 
         List<String> shortcuts = new ArrayList<>();

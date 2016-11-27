@@ -20,10 +20,10 @@ public class MainViewTest {
     }
 
     @Test
-    public void shouldShowMainMenu() {
-        sut.showMainMenu();
+    public void shouldShowInstructions() {
+        sut.showInstructions();
 
-        verify(printStream).println(sut.MENU);
+        verify(printStream).println(sut.INSTRUCTIONS);
     }
 
     @Test
