@@ -20,6 +20,6 @@ public class Board {
     }
 
     public void addGuessToBoard(Row guess) {
-
+        guessHistory.add(guess);
     }
 }
