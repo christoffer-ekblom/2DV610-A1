@@ -116,6 +116,15 @@ public class OpponentTest {
         checkHint(guesses, secrets, expected);
     }
 
+    @Test
+    public void shouldGenerateOneWhitePeg() throws Exception {
+        List<SymbolPeg> guesses = new ArrayList<>(Arrays.asList(SymbolPeg.Diamond, SymbolPeg.Heart, SymbolPeg.Heart, SymbolPeg.Heart));
+        List<SymbolPeg> secrets = new ArrayList<>(Arrays.asList(SymbolPeg.Club, SymbolPeg.Diamond, SymbolPeg.Club, SymbolPeg.Club));
+        List<KeyPeg> expected = new ArrayList<>(Arrays.asList(KeyPeg.White));
+
+        checkHint(guesses, secrets, expected);
+    }
+
     private void checkHint(List<SymbolPeg> guesses, List<SymbolPeg> secrets, List<KeyPeg> expected) throws Exception {
         Row guess = spy(Row.class);
 
