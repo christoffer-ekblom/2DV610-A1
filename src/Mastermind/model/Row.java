@@ -53,6 +53,12 @@ public class Row {
 
     @Override
     public String toString() {
-        return "h c d s";
+        List<String> result = new ArrayList<>();
+
+        for (SymbolPeg peg : symbolPegs) {
+            result.add(peg.getShortCode());
+        }
+
+        return String.join(" ", result);
     }
 }
