@@ -1,7 +1,6 @@
 package Mastermind.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public enum SymbolPeg {
@@ -9,7 +8,9 @@ public enum SymbolPeg {
     Diamond("d", 0),
     Heart("h", 1),
     Club("c", 2),
-    Spade("s", 3);
+    Spade("s", 3),
+    King("k", 4),
+    Queen("q", 5);
 
     private final String shortCode;
     private final int value;
@@ -49,18 +50,18 @@ public enum SymbolPeg {
 
         validCharacters = "^[" + validCharacters + "]+$";
 
-        if(str.length() != Board.DEFAULT_ROW_LENGTH || !str.matches(validCharacters)) {
+        if (str.length() != Board.DEFAULT_ROW_LENGTH || !str.matches(validCharacters)) {
             throw new Exception();
         }
 
         for (char character : str.toCharArray()) {
-            for(SymbolPeg symbolPeg : SymbolPeg.values()) {
-                if(character == symbolPeg.toString().toLowerCase().charAt(0)) {
+            for (SymbolPeg symbolPeg : SymbolPeg.values()) {
+                if (character == symbolPeg.toString().toLowerCase().charAt(0)) {
                     symbolPegs.add(symbolPeg);
                 }
             }
         }
-        
+
         return symbolPegs;
     }
 
