@@ -73,6 +73,22 @@ public class MainView {
     }
 
     public Row getUserGameInput(Scanner sc) throws Exception {
-        return new Row(new ArrayList<>(Arrays.asList(SymbolPeg.Diamond, SymbolPeg.Club, SymbolPeg.Diamond, SymbolPeg.Heart)));
+        String value = sc.nextLine();
+
+        while (value.length() != Board.DEFAULT_ROW_LENGTH) {
+            value = sc.nextLine();
+        }
+
+        Row row = null;
+
+        while (row == null) {
+            try {
+                row = new Row(SymbolPeg.getByString(value));
+            } catch (Exception e) {
+                value = sc.nextLine();
+            }
+        }
+
+        return row;
     }
 }
