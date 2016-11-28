@@ -88,4 +88,14 @@ public class SymbolPegTest {
             //ok
         }
     }
+
+    @Test
+    public void shouldThrowExceptionIfInputContainsTooFewCharacters() {
+        try {
+            SymbolPeg.getByString("dhc");
+            fail();
+        } catch (Exception e) {
+            //ok
+        }
+    }
 }
