@@ -53,11 +53,14 @@ public enum SymbolPeg {
             throw new Exception();
         }
 
-        symbolPegs.add(SymbolPeg.Diamond);
-        symbolPegs.add(SymbolPeg.Heart);
-        symbolPegs.add(SymbolPeg.Heart);
-        symbolPegs.add(SymbolPeg.Club);
-
+        for (char character : str.toCharArray()) {
+            for(SymbolPeg symbolPeg : SymbolPeg.values()) {
+                if(character == symbolPeg.toString().toLowerCase().charAt(0)) {
+                    symbolPegs.add(symbolPeg);
+                }
+            }
+        }
+        
         return symbolPegs;
     }
 

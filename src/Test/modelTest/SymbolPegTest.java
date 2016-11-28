@@ -110,15 +110,6 @@ public class SymbolPegTest {
     }
 
     @Test
-    public void shouldNotThrowExceptionIfInputContainsValidCharacters() {
-        try {
-            SymbolPeg.getByString("schd");
-        } catch (Exception e) {
-            fail();
-        }
-    }
-
-    @Test
     public void shouldGetCorrectListOfSymbolPegs() throws Exception {
         List<SymbolPeg> expected = new ArrayList<>();
         expected.add(SymbolPeg.Diamond);
