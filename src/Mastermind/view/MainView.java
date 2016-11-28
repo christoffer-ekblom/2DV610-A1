@@ -12,6 +12,7 @@ public class MainView {
     public final static String WELCOME = "Welcome to a game of Mastermind";
     public final static String INSTRUCTIONS = MainView.menuText();
     public final static String QUIT = "Thank you for playing Mastermind and welcome back anytime";
+    public final static String CONGRATS = "Well done! You found the secret code :)";
 
     public MainView(PrintStream output) {
         this.out = output;
@@ -93,6 +94,6 @@ public class MainView {
     }
 
     public void showCongratulations() {
-        // Nothing
+        out.println(this.CONGRATS);
     }
 }
