@@ -1,6 +1,7 @@
 package Mastermind.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public enum SymbolPeg {
@@ -45,16 +46,14 @@ public enum SymbolPeg {
             throw new Exception();
         }
 
-        List<Character> validCharacters = new ArrayList<>();
+        String validCharacters = "";
 
         for (SymbolPeg symbolPeg : SymbolPeg.values()) {
-            validCharacters.add(symbolPeg.name().toLowerCase().charAt(0));
+            validCharacters += symbolPeg.name().toLowerCase().charAt(0);
         }
 
-        for(int i = 0; i < SymbolPeg.values().length; i++) {
-            if(!str.contains(validCharacters.get(i).toString())) {
-                throw new Exception();
-            }
+        if(!validCharacters.contains(str)) {
+            throw new Exception();
         }
 
         return symbolPegs;
