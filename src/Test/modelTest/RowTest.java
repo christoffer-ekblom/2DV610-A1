@@ -39,7 +39,7 @@ public class RowTest {
     @Test
     public void shouldReturnSameListOfSymbolPegsAsWeCalledFromConstructor() {
         List<SymbolPeg> expected = this.symbolPegs;
-        List<SymbolPeg> actual = row.getSymbolPegs();
+        List<SymbolPeg> actual = row.getGuesses();
         Assert.assertEquals(expected, actual);
     }
 
@@ -47,7 +47,7 @@ public class RowTest {
     public void constructorShouldWorkWithOnlyFirstArgument() throws Exception {
         Row row = new Row(this.symbolPegs);
         List<SymbolPeg> expected = this.symbolPegs;
-        List<SymbolPeg> actual = row.getSymbolPegs();
+        List<SymbolPeg> actual = row.getGuesses();
         Assert.assertEquals(expected, actual);
     }
 
@@ -64,7 +64,7 @@ public class RowTest {
     @Test
     public void shouldReturnSameListOfKeyPegsAsWeCalledFromConstructor() {
         List<KeyPeg> expected = this.keyPegs;
-        List<KeyPeg> actual = row.getKeyPegs();
+        List<KeyPeg> actual = row.getHint();
         Assert.assertEquals(expected, actual);
     }
 

@@ -22,6 +22,7 @@ public class MasterControllerTest {
         MasterController sut = new MasterController(view, game);
 
         when(game.getBoard()).thenReturn(new Board());
+        when(game.getOpponent()).thenReturn(new Opponent());
 
         sut.run();
 
@@ -38,6 +39,7 @@ public class MasterControllerTest {
         MasterController sut = new MasterController(view, game);
 
         when(game.getBoard()).thenReturn(new Board());
+        when(game.getOpponent()).thenReturn(new Opponent());
 
         sut.playGame();
 

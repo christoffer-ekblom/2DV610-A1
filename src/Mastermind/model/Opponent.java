@@ -21,11 +21,11 @@ public class Opponent {
     }
 
     public boolean checkGuess(Row guess) throws Exception {
-        if (guess == null || guess.getSymbolPegs() == null) {
+        if (guess == null || guess.getGuesses() == null) {
             throw new Exception();
         }
 
-        if(guess.getSymbolPegs() == secretCode.getSymbolPegs()) {
+        if(guess.getGuesses() == secretCode.getGuesses()) {
             return true;
         }
 
@@ -33,7 +33,7 @@ public class Opponent {
         boolean[] used = new boolean[Board.DEFAULT_ROW_LENGTH];
 
         for (int i = 0; i < Board.DEFAULT_ROW_LENGTH; i++) {
-            if (guess.getSymbolPegs().get(i) == secretCode.getSymbolPegs().get(i)) {
+            if (guess.getGuesses().get(i) == secretCode.getGuesses().get(i)) {
                 hint.add(KeyPeg.Black);
                 used[i] = true;
                 continue;
@@ -43,7 +43,7 @@ public class Opponent {
                 if (used[j]) {
                     continue;
                 }
-                if (guess.getSymbolPegs().get(i) == secretCode.getSymbolPegs().get(j)) {
+                if (guess.getGuesses().get(i) == secretCode.getGuesses().get(j)) {
                     used[j] = true;
                     hint.add(KeyPeg.White);
                     break;

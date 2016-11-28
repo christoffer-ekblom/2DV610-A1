@@ -5,36 +5,36 @@ import java.util.List;
 
 public class Row {
 
-    private List<SymbolPeg> symbolPegs;
-    private List<KeyPeg> keyPegs;
+    private List<SymbolPeg> guesses;
+    private List<KeyPeg> hints;
 
     public Row() {
 
     }
 
-    public Row(List<SymbolPeg> symbolPegs) throws Exception {
-        this(symbolPegs, new ArrayList<>());
+    public Row(List<SymbolPeg> guesses) throws Exception {
+        this(guesses, new ArrayList<>());
     }
 
-    public Row(List<SymbolPeg> symbolPegs, List<KeyPeg> keyPegs) throws Exception {
-        if (symbolPegs.isEmpty()) {
+    public Row(List<SymbolPeg> guesses, List<KeyPeg> hints) throws Exception {
+        if (guesses.isEmpty()) {
             throw new Exception();
         }
 
-        this.symbolPegs = symbolPegs;
-        this.keyPegs = keyPegs;
+        this.guesses = guesses;
+        this.hints = hints;
     }
 
-    public List<SymbolPeg> getSymbolPegs() {
-        return this.symbolPegs;
+    public List<SymbolPeg> getGuesses() {
+        return this.guesses;
     }
 
-    public List<KeyPeg> getKeyPegs() {
-        return this.keyPegs;
+    public List<KeyPeg> getHint() {
+        return this.hints;
     }
 
     public void setHint(List<KeyPeg> hint) {
-        this.keyPegs = hint;
+        this.hints = hint;
     }
 
     @Override
@@ -48,14 +48,14 @@ public class Row {
 
         Row row = (Row) obj;
 
-        return this.getSymbolPegs().equals(row.getSymbolPegs());
+        return this.getGuesses().equals(row.getGuesses());
     }
 
     @Override
     public String toString() {
         List<String> result = new ArrayList<>();
 
-        for (SymbolPeg peg : symbolPegs) {
+        for (SymbolPeg peg : guesses) {
             result.add(peg.getShortCode());
         }
 

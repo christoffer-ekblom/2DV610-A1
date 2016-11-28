@@ -91,7 +91,7 @@ public class OpponentTest {
     private void checkHint(List<SymbolPeg> guesses, List<SymbolPeg> secrets, List<KeyPeg> expected) throws Exception {
         Row guess = spy(Row.class);
 
-        when(guess.getSymbolPegs()).thenReturn(guesses);
+        when(guess.getGuesses()).thenReturn(guesses);
 
         Field field = Opponent.class.getDeclaredField("secretCode");
         field.setAccessible(true);
@@ -99,7 +99,7 @@ public class OpponentTest {
 
         sut.checkGuess(guess);
 
-        List<KeyPeg> actual = guess.getKeyPegs();
+        List<KeyPeg> actual = guess.getHint();
 
         Assert.assertEquals(expected, actual);
     }
