@@ -41,18 +41,13 @@ public enum SymbolPeg {
 
     public static List<SymbolPeg> getByString(String str) throws Exception {
         List<SymbolPeg> symbolPegs = new ArrayList<>();
-
-        if(str.isEmpty() || str.length() != Board.DEFAULT_ROW_LENGTH) {
-            throw new Exception();
-        }
-
         String validCharacters = "";
 
         for (SymbolPeg symbolPeg : SymbolPeg.values()) {
             validCharacters += symbolPeg.name().toLowerCase().charAt(0);
         }
 
-        if(!validCharacters.contains(str)) {
+        if(str.isEmpty() || str.length() != Board.DEFAULT_ROW_LENGTH || !validCharacters.contains(str)) {
             throw new Exception();
         }
 
