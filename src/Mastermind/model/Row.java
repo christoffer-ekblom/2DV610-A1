@@ -53,12 +53,24 @@ public class Row {
 
     @Override
     public String toString() {
-        List<String> result = new ArrayList<>();
+        List<String> guesses = new ArrayList<>();
+        List<String> hints = new ArrayList<>();
 
-        for (SymbolPeg peg : guesses) {
-            result.add(peg.getShortCode());
+        for (SymbolPeg peg : this.guesses) {
+            guesses.add(peg.getShortCode());
         }
 
-        return String.join(" ", result);
+        String result = String.join(" ", guesses);
+
+        if (this.hints.size() > 0) {
+            for (KeyPeg peg : this.hints) {
+                hints.add(peg.toShortString());
+            }
+
+            result += " => ";
+            result += String.join(" ", hints);
+        }
+
+        return result;
     }
 }
