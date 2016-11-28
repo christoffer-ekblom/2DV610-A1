@@ -44,7 +44,7 @@ public enum SymbolPeg {
         if(str == null) {
             throw new Exception();
         }
-        
+
         return symbolPegs;
     }
 

@@ -68,4 +68,14 @@ public class SymbolPegTest {
             //ok
         }
     }
+
+    @Test
+    public void shouldThrowExceptionIfInputIsEmpty() {
+        try {
+            SymbolPeg.getByString("");
+            fail();
+        } catch (Exception e) {
+            //ok
+        }
+    }
 }
