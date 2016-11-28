@@ -53,6 +53,11 @@ public enum SymbolPeg {
             throw new Exception();
         }
 
+        symbolPegs.add(SymbolPeg.Diamond);
+        symbolPegs.add(SymbolPeg.Heart);
+        symbolPegs.add(SymbolPeg.Heart);
+        symbolPegs.add(SymbolPeg.Club);
+
         return symbolPegs;
     }
 
