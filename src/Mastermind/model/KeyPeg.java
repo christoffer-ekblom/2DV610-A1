@@ -1,10 +1,16 @@
 package Mastermind.model;
 
 public enum KeyPeg {
-    Black,
-    White;
+    Black("b"),
+    White("w");
+
+    private String shortName;
+
+    KeyPeg(String shortName) {
+        this.shortName = shortName;
+    }
 
     public String toShortString() {
-        return "";
+        return this.shortName;
     }
 }
