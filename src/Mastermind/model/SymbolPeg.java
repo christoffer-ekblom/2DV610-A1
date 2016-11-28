@@ -45,8 +45,16 @@ public enum SymbolPeg {
             throw new Exception();
         }
 
-        if(str.contains("a")) {
-            throw new Exception();
+        List<Character> validCharacters = new ArrayList<>();
+
+        for (SymbolPeg symbolPeg : SymbolPeg.values()) {
+            validCharacters.add(symbolPeg.name().toLowerCase().charAt(0));
+        }
+
+        for(int i = 0; i < SymbolPeg.values().length; i++) {
+            if(!str.contains(validCharacters.get(i).toString())) {
+                throw new Exception();
+            }
         }
 
         return symbolPegs;
