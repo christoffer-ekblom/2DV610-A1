@@ -49,7 +49,7 @@ public enum SymbolPeg {
 
         validCharacters = "^[" + validCharacters + "]+$";
 
-        if(str.isEmpty() || str.length() != Board.DEFAULT_ROW_LENGTH || !str.matches(validCharacters)) {
+        if(str.length() != Board.DEFAULT_ROW_LENGTH || !str.matches(validCharacters)) {
             throw new Exception();
         }
 
