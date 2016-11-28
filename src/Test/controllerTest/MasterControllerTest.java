@@ -19,10 +19,12 @@ public class MasterControllerTest {
     public void shouldShowWelcomeMessageInstructionsAndQuit() throws Exception {
         MainView view = mock(MainView.class);
         Game game = mock(Game.class);
+        Opponent opponent = mock(Opponent.class);
         MasterController sut = new MasterController(view, game);
 
         when(game.getBoard()).thenReturn(new Board());
-        when(game.getOpponent()).thenReturn(new Opponent());
+        when(game.getOpponent()).thenReturn(opponent);
+        when(opponent.checkGuess(new Row())).thenReturn(false);
 
         sut.run();
 
@@ -36,10 +38,12 @@ public class MasterControllerTest {
     public void shouldExecuteNewGame() throws Exception {
         MainView view = mock(MainView.class);
         Game game = mock(Game.class);
+        Opponent opponent = mock(Opponent.class);
         MasterController sut = new MasterController(view, game);
 
         when(game.getBoard()).thenReturn(new Board());
-        when(game.getOpponent()).thenReturn(new Opponent());
+        when(game.getOpponent()).thenReturn(opponent);
+        when(opponent.checkGuess(new Row())).thenReturn(false);
 
         sut.playGame();
 

@@ -6,7 +6,6 @@ import Mastermind.model.SymbolPeg;
 import Mastermind.view.*;
 
 import org.junit.*;
-import sun.jvm.hotspot.debugger.cdbg.Sym;
 
 import static org.mockito.Mockito.*;
 
