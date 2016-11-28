@@ -2,5 +2,9 @@ package Mastermind.model;
 
 public enum KeyPeg {
     Black,
-    White
+    White;
+
+    public String toShortString() {
+        return "";
+    }
 }
