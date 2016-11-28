@@ -41,11 +41,7 @@ public enum SymbolPeg {
     public static List<SymbolPeg> getByString(String str) throws Exception {
         List<SymbolPeg> symbolPegs = new ArrayList<>();
 
-        if(str == null) {
-            throw new Exception();
-        }
-
-        if(str == "") {
+        if(str.isEmpty()) {
             throw new Exception();
         }
 
