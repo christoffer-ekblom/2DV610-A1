@@ -45,6 +45,10 @@ public enum SymbolPeg {
             throw new Exception();
         }
 
+        if(str.contains("a")) {
+            throw new Exception();
+        }
+
         return symbolPegs;
     }
 
