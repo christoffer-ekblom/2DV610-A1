@@ -6,7 +6,6 @@ import java.util.List;
 import static java.util.Collections.shuffle;
 
 public class Opponent {
-
     private Row secretCode;
 
     public void generateSecretCode() throws Exception {
@@ -21,9 +20,13 @@ public class Opponent {
         this.secretCode = new Row(symbolPegs);
     }
 
-    public void checkGuess(Row guess) throws Exception {
+    public boolean checkGuess(Row guess) throws Exception {
         if (guess == null || guess.getSymbolPegs() == null) {
             throw new Exception();
+        }
+
+        if(guess.getSymbolPegs() == secretCode.getSymbolPegs()) {
+            return true;
         }
 
         List<KeyPeg> hint = new ArrayList<>();
@@ -49,5 +52,7 @@ public class Opponent {
         }
 
         guess.setHint(hint);
+
+        return false;
     }
 }

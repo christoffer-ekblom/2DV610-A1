@@ -5,6 +5,7 @@ import Mastermind.view.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class MasterController {
 
@@ -25,16 +26,26 @@ public class MasterController {
     }
 
     public void playGame() throws Exception {
+        Row row;
         game.newGame();
+        Opponent opponent = game.getOpponent();
         List<Row> guessHistory = new ArrayList<>();
+        boolean isGameOver;
+        boolean isCorrectGuess = false;
 
-        while (guessHistory.size() != Board.DEFAULT_TABLE_LENGTH) {
+        do {
+            isGameOver = guessHistory.size() >= Board.DEFAULT_TABLE_LENGTH;
             this.view.showBoard(this.game.getBoard());
-            this.view.showInstructions();
 
-            this.game.getBoard().addGuessToBoard(new Row()); // TODO: make a real user guess here insted of this line
+            if(!isGameOver && !isCorrectGuess) {
+                this.view.showInstructions();
+                row = view.getUserGameInput(new Scanner(System.in));
 
-            guessHistory = this.game.getBoard().getGuessHistory();
-        }
+                isCorrectGuess = opponent.checkGuess(row);
+
+                this.game.getBoard().addGuessToBoard(row);
+                guessHistory = this.game.getBoard().getGuessHistory();
+            }
+        } while (!isGameOver && !isCorrectGuess);
     }
 }

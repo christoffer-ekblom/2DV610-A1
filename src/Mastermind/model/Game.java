@@ -17,4 +17,8 @@ public class Game {
     public Board getBoard() {
         return this.board;
     }
+
+    public Opponent getOpponent() {
+        return this.opponent;
+    }
 }
