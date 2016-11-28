@@ -41,11 +41,7 @@ public enum SymbolPeg {
     public static List<SymbolPeg> getByString(String str) throws Exception {
         List<SymbolPeg> symbolPegs = new ArrayList<>();
 
-        if(str.isEmpty() || str.length() > Board.DEFAULT_ROW_LENGTH) {
-            throw new Exception();
-        }
-
-        if(str.length() == 3) {
+        if(str.isEmpty() || str.length() != Board.DEFAULT_ROW_LENGTH) {
             throw new Exception();
         }
 
