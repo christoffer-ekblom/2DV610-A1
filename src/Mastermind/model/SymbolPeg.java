@@ -47,7 +47,9 @@ public enum SymbolPeg {
             validCharacters += symbolPeg.name().toLowerCase().charAt(0);
         }
 
-        if(str.isEmpty() || str.length() != Board.DEFAULT_ROW_LENGTH || !validCharacters.contains(str)) {
+        String regex = "^[" + validCharacters + "]+$";
+
+        if(str.isEmpty() || str.length() != Board.DEFAULT_ROW_LENGTH || !str.matches(regex)) {
             throw new Exception();
         }
 
