@@ -78,4 +78,14 @@ public class SymbolPegTest {
             //ok
         }
     }
+
+    @Test
+    public void shouldThrowExceptionIfInputContainsTooManyCharacters() {
+        try {
+            SymbolPeg.getByString("dhcsd");
+            fail();
+        } catch (Exception e) {
+            //ok
+        }
+    }
 }
