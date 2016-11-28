@@ -45,6 +45,10 @@ public enum SymbolPeg {
             throw new Exception();
         }
 
+        if(str.length() == 3) {
+            throw new Exception();
+        }
+
         return symbolPegs;
     }
 
