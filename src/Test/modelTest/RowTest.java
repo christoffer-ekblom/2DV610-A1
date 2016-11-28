@@ -78,4 +78,16 @@ public class RowTest {
 
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void shouldDisplayCorrectStringRepresentationWithHints() throws Exception {
+        List<SymbolPeg> symbolPegs = new ArrayList<>(Arrays.asList(SymbolPeg.Heart, SymbolPeg.Club, SymbolPeg.Diamond, SymbolPeg.Spade));
+        List<KeyPeg> keyPegs = new ArrayList<>(Arrays.asList(KeyPeg.Black, KeyPeg.Black, KeyPeg.White, KeyPeg.White));
+        Row sut = new Row(symbolPegs, keyPegs);
+
+        String actual = sut.toString();
+        String expected = "h c d s => b b w w";
+
+        Assert.assertEquals(expected, actual);
+    }
 }
