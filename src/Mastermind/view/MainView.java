@@ -73,6 +73,6 @@ public class MainView {
     }
 
     public Row getUserGameInput(Scanner sc) throws Exception {
-        return new Row(new ArrayList<>(Arrays.asList(SymbolPeg.Diamond)));
+        return new Row(new ArrayList<>(Arrays.asList(SymbolPeg.Diamond, SymbolPeg.Club, SymbolPeg.Diamond, SymbolPeg.Heart)));
     }
 }
