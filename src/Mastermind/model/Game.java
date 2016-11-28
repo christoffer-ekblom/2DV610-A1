@@ -17,8 +17,4 @@ public class Game {
     public Board getBoard() {
         return this.board;
     }
-
-    public boolean isGameOver() {
-        return board.getGuessHistory().size() >= Board.DEFAULT_TABLE_LENGTH - 1;
-    }
 }

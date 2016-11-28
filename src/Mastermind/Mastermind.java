@@ -6,10 +6,10 @@ import Mastermind.view.*;
 
 public class Mastermind {
 
-    private PlayGame playGame;
+    private MasterController controller;
 
-    public Mastermind(PlayGame game) {
-        this.playGame = game;
+    public Mastermind(MasterController game) {
+        this.controller = game;
     }
 
     public static void main(String[] a_args) throws Exception {
@@ -17,13 +17,13 @@ public class Mastermind {
         Opponent opponent = new Opponent();
         Board board = new Board();
         Game game = new Game(opponent, board);
-        PlayGame playGame = new PlayGame(view, game);
-        Mastermind mastermind = new Mastermind(playGame);
+        MasterController controller = new MasterController(view, game);
+        Mastermind mastermind = new Mastermind(controller);
 
         mastermind.initialize();
     }
 
     public void initialize() throws Exception {
-        this.playGame.run();
+        this.controller.run();
     }
 }

@@ -8,7 +8,7 @@ import org.junit.*;
 
 import static org.mockito.Mockito.*;
 
-public class PlayGameTest {
+public class MasterControllerTest {
 
     @Before
     public void setUp() {
@@ -19,7 +19,7 @@ public class PlayGameTest {
     public void shouldShowWelcomeMessageInstructionsAndQuit() throws Exception {
         MainView view = mock(MainView.class);
         Game game = mock(Game.class);
-        PlayGame sut = new PlayGame(view, game);
+        MasterController sut = new MasterController(view, game);
 
         when(game.getBoard()).thenReturn(new Board());
 
@@ -35,23 +35,12 @@ public class PlayGameTest {
     public void shouldExecuteNewGame() throws Exception {
         MainView view = mock(MainView.class);
         Game game = mock(Game.class);
-        PlayGame sut = new PlayGame(view, game);
+        MasterController sut = new MasterController(view, game);
 
         when(game.getBoard()).thenReturn(new Board());
 
         sut.playGame();
 
         verify(game).newGame();
-    }
-
-    @Test
-    public void shouldRunAsManyTimesAsMaxGuesses() throws Exception {
-        MainView view = mock(MainView.class);
-        Game game = spy(new Game(new Opponent(), new Board()));
-        PlayGame sut = new PlayGame(view, game);
-
-        sut.playGame();
-
-        verify(game, times(10)).isGameOver();
     }
 }

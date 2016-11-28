@@ -33,13 +33,4 @@ public class GameTest {
 
         Assert.assertEquals(board, actual);
     }
-
-    @Test
-    public void shouldReportGameOver() {
-        while (board.getGuessHistory().size() < 10) {
-            board.addGuessToBoard(new Row());
-        }
-
-        Assert.assertTrue(sut.isGameOver());
-    }
 }
