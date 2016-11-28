@@ -108,4 +108,13 @@ public class SymbolPegTest {
             //ok
         }
     }
+
+    @Test
+    public void shouldNotThrowExceptionIfInputContainsValidCharacters() {
+        try {
+            SymbolPeg.getByString("schd");
+        } catch (Exception e) {
+            fail();
+        }
+    }
 }
