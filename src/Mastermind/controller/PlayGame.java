@@ -3,6 +3,8 @@ package Mastermind.controller;
 import Mastermind.model.*;
 import Mastermind.view.*;
 
+import java.util.List;
+
 public class PlayGame {
 
     private MainView view;
@@ -24,13 +26,16 @@ public class PlayGame {
     public void playGame() throws Exception {
         int i = 0;
         game.newGame();
+        List<Row> guessHistory;
 
         while (!game.isGameOver()) {
             this.view.showBoard(this.game.getBoard());
             this.view.showInstructions();
             this.game.getBoard().addGuessToBoard(new Row());
 
-            if(++i == 10) {
+            guessHistory = this.game.getBoard().getGuessHistory();
+
+            if(guessHistory.size() == Board.DEFAULT_TABLE_LENGTH) {
                 break;
             }
         }
