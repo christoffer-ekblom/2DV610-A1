@@ -55,6 +55,13 @@ public class MainViewTest {
     }
 
     @Test
+    public void shouldShowCongratsMessage() {
+        sut.showCongratulations();
+
+        verify(printStream).println(sut.CONGRATS);
+    }
+
+    @Test
     public void shouldDisplayEmptyBoard() {
         Board board = mock(Board.class);
         String actual = sut.getBoardGraphics(board);

@@ -91,4 +91,8 @@ public class MainView {
 
         return row;
     }
+
+    public void showCongratulations() {
+        // Nothing
+    }
 }

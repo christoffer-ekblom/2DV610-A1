@@ -37,6 +37,10 @@ public class MasterController {
             isGameOver = guessHistory.size() >= Board.DEFAULT_TABLE_LENGTH;
             this.view.showBoard(this.game.getBoard());
 
+            if (isCorrectGuess) {
+                this.view.showCongratulations();
+            }
+
             if(!isGameOver && !isCorrectGuess) {
                 this.view.showInstructions();
                 row = view.getUserGameInput(new Scanner(System.in));
