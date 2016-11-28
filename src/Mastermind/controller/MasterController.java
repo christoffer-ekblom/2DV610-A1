@@ -30,18 +30,19 @@ public class MasterController {
         game.newGame();
         Opponent opponent = game.getOpponent();
         List<Row> guessHistory = new ArrayList<>();
-        boolean isGameOver;
+        boolean isGameOver = false;
         boolean isCorrectGuess = false;
 
-        do {
+        while (!isGameOver) {
             isGameOver = guessHistory.size() >= Board.DEFAULT_TABLE_LENGTH;
             this.view.showBoard(this.game.getBoard());
 
             if (isCorrectGuess) {
                 this.view.showCongratulations();
+                break;
             }
 
-            if(!isGameOver && !isCorrectGuess) {
+            if(!isGameOver) {
                 this.view.showInstructions();
                 row = view.getUserGameInput(new Scanner(System.in));
 
@@ -50,6 +51,6 @@ public class MasterController {
                 this.game.getBoard().addGuessToBoard(row);
                 guessHistory = this.game.getBoard().getGuessHistory();
             }
-        } while (!isGameOver && !isCorrectGuess);
+        }
     }
 }

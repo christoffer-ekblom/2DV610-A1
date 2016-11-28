@@ -25,7 +25,7 @@ public class Opponent {
             throw new Exception();
         }
 
-        if(guess.getGuesses() == secretCode.getGuesses()) {
+        if(guess.getGuesses().equals(secretCode.getGuesses())) {
             return true;
         }
 
