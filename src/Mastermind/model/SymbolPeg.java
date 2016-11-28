@@ -39,7 +39,13 @@ public enum SymbolPeg {
     }
 
     public static List<SymbolPeg> getByString(String str) throws Exception {
-        throw new Exception();
+        List<SymbolPeg> symbolPegs = new ArrayList<>();
+
+        if(str == null) {
+            throw new Exception();
+        }
+        
+        return symbolPegs;
     }
 
     public String getShortCode() {
