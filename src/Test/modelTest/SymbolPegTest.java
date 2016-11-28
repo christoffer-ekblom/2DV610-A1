@@ -117,4 +117,19 @@ public class SymbolPegTest {
             fail();
         }
     }
+
+    @Test
+    public void shouldGetCorrectListOfSymbolPegs() throws Exception {
+        List<SymbolPeg> expected = new ArrayList<>();
+        expected.add(SymbolPeg.Diamond);
+        expected.add(SymbolPeg.Heart);
+        expected.add(SymbolPeg.Heart);
+        expected.add(SymbolPeg.Club);
+
+        String str = "dhhc";
+
+        List<SymbolPeg> actual = SymbolPeg.getByString(str);
+
+        Assert.assertEquals(expected, actual);
+    }
 }
