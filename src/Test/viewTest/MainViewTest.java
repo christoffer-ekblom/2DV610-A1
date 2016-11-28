@@ -1,15 +1,22 @@
 package Test.viewTest;
 
 import Mastermind.model.Board;
+import Mastermind.model.Row;
+import Mastermind.model.SymbolPeg;
 import Mastermind.view.*;
 
 import org.junit.*;
+import sun.jvm.hotspot.debugger.cdbg.Sym;
+
 import static org.mockito.Mockito.*;
 
+import java.io.ByteArrayInputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class MainViewTest {
-
     private MainView sut;
     private PrintStream printStream;
 
@@ -58,6 +65,17 @@ public class MainViewTest {
         for (int i = 0; i < Board.DEFAULT_TABLE_LENGTH; i++) {
             expected += "\n_ _ _ _";
         }
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldReturnARow() throws Exception {
+        String input = "dcdh";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        Scanner sc = new Scanner(System.in);
+        Row actual = sut.getUserGameInput(sc);
+        Row expected = new Row(new ArrayList<>(Arrays.asList(SymbolPeg.Diamond, SymbolPeg.Club, SymbolPeg.Diamond, SymbolPeg.Heart)));
 
         Assert.assertEquals(expected, actual);
     }

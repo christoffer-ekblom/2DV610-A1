@@ -71,4 +71,8 @@ public class MainView {
 
         return output;
     }
+
+    public Row getUserGameInput(Scanner sc) throws Exception {
+        return new Row(new ArrayList<>(Arrays.asList(SymbolPeg.Diamond)));
+    }
 }
