@@ -21,7 +21,7 @@ public class KeyPegTest {
         KeyPeg sut = KeyPeg.Black;
 
         String actual = sut.toShortString();
-        String expected = "b";
+        String expected = "◙";
 
         Assert.assertEquals(expected, actual);
     }

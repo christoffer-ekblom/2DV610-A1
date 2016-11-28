@@ -67,7 +67,7 @@ public class Row {
                 hints.add(peg.toShortString());
             }
 
-            result += " => ";
+            result += " → ";
             result += String.join(" ", hints);
         }
 

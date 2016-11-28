@@ -1,8 +1,8 @@
 package Mastermind.model;
 
 public enum KeyPeg {
-    Black("b"),
-    White("w");
+    Black("◙"),
+    White("○");
 
     private String shortName;
 

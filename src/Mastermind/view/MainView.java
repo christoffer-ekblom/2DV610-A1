@@ -53,8 +53,7 @@ public class MainView {
     }
 
     private static String menuText() {
-        String output = "Instructions:\nEnter your guess by typing ";
-        output += "\"";
+        String output = "\nInstructions:\nEnter your guess. For example: \"dhcs\".\n";
 
         List<String> shortcuts = new ArrayList<>();
         String shortcut;
@@ -66,9 +65,8 @@ public class MainView {
             symbolName.add("(" + shortcut + ")" + symbolPeg.name().substring(1));
         }
 
-        output += String.join("", shortcuts);
-        output += "\" ";
         output += String.join(" ,", symbolName);
+        output += "\n";
 
         return output;
     }
