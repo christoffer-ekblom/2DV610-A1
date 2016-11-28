@@ -58,4 +58,14 @@ public class SymbolPegTest {
 
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void shouldThrowExceptionIfInputIsNull() {
+        try {
+            SymbolPeg.getByString(null);
+            fail();
+        } catch (Exception e) {
+            //ok
+        }
+    }
 }

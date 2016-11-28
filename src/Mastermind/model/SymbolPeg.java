@@ -38,6 +38,10 @@ public enum SymbolPeg {
         return pegs;
     }
 
+    public static List<SymbolPeg> getByString(String str) throws Exception {
+        return null;
+    }
+
     public String getShortCode() {
         return shortCode;
     }
