@@ -94,7 +94,7 @@ public class RowTest {
         Row sut = new Row(symbolPegs, keyPegs);
 
         String actual = sut.toString();
-        String expected = "h c d s → ◙ ◙ ○ ○";
+        String expected = "s c d h → ◙ ◙ ○ ○";
 
         Assert.assertEquals(expected, actual);
     }
