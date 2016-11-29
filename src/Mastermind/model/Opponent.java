@@ -2,6 +2,7 @@ package Mastermind.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import static java.util.Collections.shuffle;
 
@@ -10,14 +11,15 @@ public class Opponent {
 
     public void generateSecretCode() throws Exception {
         List<Integer> secret = new ArrayList<>();
-        for (int i = 0; i < SymbolPeg.values().length; i++) {
-            secret.add(i);
+        Random random = new Random();
+
+        for (int i = 0; i < Board.DEFAULT_ROW_LENGTH; i++) {
+            secret.add(random.nextInt(SymbolPeg.values().length));
         }
-        shuffle(secret);
 
         List<SymbolPeg> symbolPegs = SymbolPeg.getByInteger(secret);
 
-        this.secretCode = new Row(symbolPegs);
+        secretCode = new Row(symbolPegs);
     }
 
     public boolean checkGuess(Row guess) throws Exception {
