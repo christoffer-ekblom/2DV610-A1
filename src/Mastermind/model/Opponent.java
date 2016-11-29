@@ -10,7 +10,7 @@ public class Opponent {
 
     public void generateSecretCode() throws Exception {
         List<Integer> secret = new ArrayList<>();
-        for (int i = 0; i < Board.DEFAULT_ROW_LENGTH; i++) {
+        for (int i = 0; i < SymbolPeg.values().length; i++) {
             secret.add(i);
         }
         shuffle(secret);

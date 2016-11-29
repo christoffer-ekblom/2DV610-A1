@@ -7,11 +7,11 @@ public enum SymbolPeg {
     Diamond("d", 0),
     Heart("h", 1),
     Club("c", 2),
-    Spade("s", 3);
-    /*King("k", 4),
+    Spade("s", 3),
+    King("k", 4),
     Queen("q", 5),
     Bishop("b", 6),
-    Rook("r", 7);*/
+    Rook("r", 7);
 
     private final String shortCode;
     private final int value;
