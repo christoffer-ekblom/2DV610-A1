@@ -33,4 +33,11 @@ public class GameTest {
 
         Assert.assertEquals(board, actual);
     }
+
+    @Test
+    public void shouldReturnAOpponent() {
+        Opponent actual = sut.getOpponent();
+
+        Assert.assertEquals(opponent, actual);
+    }
 }
