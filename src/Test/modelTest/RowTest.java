@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 public class RowTest {
 
-    Row row;
+    Row sut;
     List<SymbolPeg> symbolPegs;
     List<KeyPeg> keyPegs;
 
@@ -33,13 +33,13 @@ public class RowTest {
 
         this.keyPegs = keyPegs;
 
-        this.row = new Row(symbolPegs, keyPegs);
+        this.sut = new Row(symbolPegs, keyPegs);
     }
 
     @Test
     public void shouldReturnSameListOfSymbolPegsAsWeCalledFromConstructor() {
         List<SymbolPeg> expected = this.symbolPegs;
-        List<SymbolPeg> actual = row.getGuesses();
+        List<SymbolPeg> actual = sut.getGuesses();
         Assert.assertEquals(expected, actual);
     }
 
@@ -64,13 +64,13 @@ public class RowTest {
     @Test
     public void shouldReturnSameListOfKeyPegsAsWeCalledFromConstructor() {
         List<KeyPeg> expected = this.keyPegs;
-        List<KeyPeg> actual = row.getHint();
+        List<KeyPeg> actual = sut.getHint();
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void shouldDisplayCorrectStringRepresentation() throws Exception {
-        Row sut = new Row(symbolPegs);
+        sut = new Row(symbolPegs);
 
         String actual = sut.toString();
         String expected = "s c d h";
@@ -80,7 +80,7 @@ public class RowTest {
 
     @Test
     public void shouldDisplayCorrectStringRepresentationWithHints() throws Exception {
-        Row sut = new Row(symbolPegs, keyPegs);
+        sut = new Row(symbolPegs, keyPegs);
 
         String actual = sut.toString();
         String expected = "s c d h → ◙ ◙ ○";
@@ -91,7 +91,7 @@ public class RowTest {
     @Test
     public void shouldAlwaysDisplayBlackHintsFirst() throws Exception {
         List<KeyPeg> keyPegs = new ArrayList<>(Arrays.asList(KeyPeg.White, KeyPeg.White, KeyPeg.Black, KeyPeg.Black));
-        Row sut = new Row(symbolPegs, keyPegs);
+        sut = new Row(symbolPegs, keyPegs);
 
         String actual = sut.toString();
         String expected = "s c d h → ◙ ◙ ○ ○";
@@ -101,8 +101,8 @@ public class RowTest {
 
     @Test
     public void shouldIfInstancesAreTheSame() {
-        Row foo = row;
+        Row foo = sut;
 
-        Assert.assertTrue(foo.equals(row));
+        Assert.assertTrue(foo.equals(sut));
     }
 }
