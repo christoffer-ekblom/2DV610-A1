@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static java.util.Collections.shuffle;
-
 public class Opponent {
     private Row secretCode;
 
@@ -27,7 +25,7 @@ public class Opponent {
             throw new Exception();
         }
 
-        if(guess.getGuesses().equals(secretCode.getGuesses())) {
+        if (guess.getGuesses().equals(secretCode.getGuesses())) {
             return true;
         }
 

@@ -97,6 +97,18 @@ public class OpponentTest {
         checkHint(guesses, secrets, expected);
     }
 
+    @Test
+    public void shouldReturnTrueIfGuessEqualsSecret() throws Exception {
+        List<SymbolPeg> secrets = new ArrayList<>(Arrays.asList(SymbolPeg.Club, SymbolPeg.Diamond, SymbolPeg.Club, SymbolPeg.Club));
+        List<SymbolPeg> guesses = new ArrayList<>(Arrays.asList(SymbolPeg.Club, SymbolPeg.Diamond, SymbolPeg.Club, SymbolPeg.Club));
+
+        Field field = Opponent.class.getDeclaredField("secretCode");
+        field.setAccessible(true);
+        field.set(sut, new Row(secrets));
+
+        Assert.assertTrue(sut.checkGuess(new Row(guesses)));
+    }
+
     private void checkHint(List<SymbolPeg> guesses, List<SymbolPeg> secrets, List<KeyPeg> expected) throws Exception {
         Row guess = spy(Row.class);
 
