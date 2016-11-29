@@ -2,6 +2,7 @@ package Mastermind.controller;
 
 import Mastermind.model.*;
 import Mastermind.view.*;
+import org.apache.commons.lang.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,5 +53,9 @@ public class MasterController {
                 guessHistory = this.game.getBoard().getGuessHistory();
             }
         }
+    }
+
+    public boolean isGameOver() {
+        return false;
     }
 }

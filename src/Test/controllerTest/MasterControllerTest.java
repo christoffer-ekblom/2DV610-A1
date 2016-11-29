@@ -6,6 +6,9 @@ import Mastermind.view.*;
 
 import org.junit.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import static org.mockito.Mockito.*;
 
 public class MasterControllerTest {
@@ -48,5 +51,19 @@ public class MasterControllerTest {
         sut.playGame();
 
         verify(game).newGame();
+    }
+
+    @Test
+    public void shouldReportGameAsOver() {
+        MainView view = mock(MainView.class);
+        Game game = mock(Game.class);
+        Board board = mock(Board.class);
+        MasterController sut = new MasterController(view, game);
+
+        when(game.getBoard()).thenReturn(board);
+        when(board.getGuessHistory()).thenReturn(Arrays.asList(new Row[Board.DEFAULT_TABLE_LENGTH]));
+
+        Assert.assertTrue(sut.isGameOver());
+
     }
 }
