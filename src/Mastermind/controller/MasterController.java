@@ -56,6 +56,6 @@ public class MasterController {
     }
 
     public boolean isGameOver() {
-        return true;
+        return game.getBoard().getGuessHistory().size() >= Board.DEFAULT_TABLE_LENGTH;
     }
 }

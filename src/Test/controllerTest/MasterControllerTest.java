@@ -13,18 +13,23 @@ import static org.mockito.Mockito.*;
 
 public class MasterControllerTest {
 
+    private MainView view;
+    private Game game;
+    private Opponent opponent;
+    private MasterController sut;
+    private Board board;
+
     @Before
     public void setUp() {
-        // Empty
+        view = mock(MainView.class);
+        game = mock(Game.class);
+        opponent = mock(Opponent.class);
+        board = mock(Board.class);
+        sut = new MasterController(view, game);
     }
 
     @Test
     public void shouldShowWelcomeMessageInstructionsAndQuit() throws Exception {
-        MainView view = mock(MainView.class);
-        Game game = mock(Game.class);
-        Opponent opponent = mock(Opponent.class);
-        MasterController sut = new MasterController(view, game);
-
         when(game.getBoard()).thenReturn(new Board());
         when(game.getOpponent()).thenReturn(opponent);
         when(opponent.checkGuess(new Row())).thenReturn(false);
@@ -39,11 +44,6 @@ public class MasterControllerTest {
 
     @Test
     public void shouldExecuteNewGame() throws Exception {
-        MainView view = mock(MainView.class);
-        Game game = mock(Game.class);
-        Opponent opponent = mock(Opponent.class);
-        MasterController sut = new MasterController(view, game);
-
         when(game.getBoard()).thenReturn(new Board());
         when(game.getOpponent()).thenReturn(opponent);
         when(opponent.checkGuess(new Row())).thenReturn(false);
@@ -55,15 +55,9 @@ public class MasterControllerTest {
 
     @Test
     public void shouldReportGameAsOver() {
-        MainView view = mock(MainView.class);
-        Game game = mock(Game.class);
-        Board board = mock(Board.class);
-        MasterController sut = new MasterController(view, game);
-
         when(game.getBoard()).thenReturn(board);
         when(board.getGuessHistory()).thenReturn(Arrays.asList(new Row[Board.DEFAULT_TABLE_LENGTH]));
 
         Assert.assertTrue(sut.isGameOver());
-
     }
 }
