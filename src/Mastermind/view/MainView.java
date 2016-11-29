@@ -37,9 +37,7 @@ public class MainView {
     public String getBoardGraphics(Board board) {
         List<String> result = new ArrayList<>();
 
-        for (Row guess : board.getGuessHistory()) {
-            result.add(guess.toString());
-        }
+        board.getGuessHistory().forEach(guess -> result.add(guess.toString()));
 
         while (result.size() < Board.DEFAULT_TABLE_LENGTH) {
             result.add("_ _ _ _"); // TODO: same number of "_" as DEFAULT_ROW_LENGTH
