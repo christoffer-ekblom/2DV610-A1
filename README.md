@@ -5,6 +5,9 @@
 
 Assignment 1. Part 2. XUnit testing
 
+### Gameplay example
+![Gameplay](https://github.com/sticky4loop/2DV610-A1/blob/master/instructions/gameplay_example.png?raw=true)
+
 ### Contributors
 
 * [Christoffer Ekblom](https://github.com/sticky4loop)
