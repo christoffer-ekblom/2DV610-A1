@@ -43,15 +43,8 @@ public enum SymbolPeg {
 
     public static List<SymbolPeg> getByString(String str) throws Exception {
         List<SymbolPeg> symbolPegs = new ArrayList<>();
-        String validCharacters = "";
 
-        for (SymbolPeg symbolPeg : SymbolPeg.values()) {
-            validCharacters += symbolPeg.name().toLowerCase().charAt(0);
-        }
-
-        validCharacters = "^[" + validCharacters + "]+$";
-
-        if (str.length() != Board.DEFAULT_ROW_LENGTH || !str.matches(validCharacters)) {
+        if (!isValidUserInput(str)) {
             throw new Exception();
         }
 
@@ -64,6 +57,22 @@ public enum SymbolPeg {
         }
 
         return symbolPegs;
+    }
+
+    public static boolean isValidUserInput(String input) {
+        if (input.length() != Board.DEFAULT_ROW_LENGTH) {
+            return false;
+        }
+
+        String validCharacters = "";
+
+        for (SymbolPeg symbolPeg : SymbolPeg.values()) {
+            validCharacters += symbolPeg.name().toLowerCase().charAt(0);
+        }
+
+        validCharacters = "^[" + validCharacters + "]+$";
+
+        return input.matches(validCharacters);
     }
 
     public String getShortCode() {

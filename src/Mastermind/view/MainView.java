@@ -72,23 +72,13 @@ public class MainView {
     }
 
     public Row getUserGameInput(Scanner sc) throws Exception {
-        String value = sc.nextLine();
+        String value;
 
-        while (value.length() != Board.DEFAULT_ROW_LENGTH) {
+        do {
             value = sc.nextLine();
-        }
+        } while (!SymbolPeg.isValidUserInput(value));
 
-        Row row = null;
-
-        while (row == null) {
-            try {
-                row = new Row(SymbolPeg.getByString(value));
-            } catch (Exception e) {
-                value = sc.nextLine();
-            }
-        }
-
-        return row;
+        return new Row(SymbolPeg.getByString(value));
     }
 
     public void showCongratulations() {
