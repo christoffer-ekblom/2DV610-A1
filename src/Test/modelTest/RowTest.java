@@ -87,4 +87,15 @@ public class RowTest {
 
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void shouldDisplayBlackHintsFirst() throws Exception {
+        List<KeyPeg> keyPegs = new ArrayList<>(Arrays.asList(KeyPeg.White, KeyPeg.White, KeyPeg.Black, KeyPeg.Black));
+        Row sut = new Row(symbolPegs, keyPegs);
+
+        String actual = sut.toString();
+        String expected = "h c d s → ◙ ◙ ○ ○";
+
+        Assert.assertEquals(expected, actual);
+    }
 }
