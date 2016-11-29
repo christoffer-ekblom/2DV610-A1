@@ -1,6 +1,7 @@
 package Mastermind.model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Row {
@@ -66,6 +67,8 @@ public class Row {
             for (KeyPeg peg : this.hints) {
                 hints.add(peg.toShortString());
             }
+
+            hints.sort(Comparator.reverseOrder());
 
             result += " → ";
             result += String.join(" ", hints);
