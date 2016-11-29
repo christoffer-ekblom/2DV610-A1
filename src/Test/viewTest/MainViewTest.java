@@ -66,10 +66,10 @@ public class MainViewTest {
         Board board = mock(Board.class);
         String actual = sut.getBoardGraphics(board);
 
-        String expected = "? ? ? ?";
+        String expected = "? ? ? ? ";
 
         for (int i = 0; i < Board.DEFAULT_TABLE_LENGTH; i++) {
-            expected += "\n_ _ _ _";
+            expected += "\n_ _ _ _ ";
         }
 
         Assert.assertEquals(expected, actual);

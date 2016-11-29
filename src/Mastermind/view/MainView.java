@@ -40,10 +40,10 @@ public class MainView {
         board.getGuessHistory().forEach(guess -> result.add(guess.toString()));
 
         while (result.size() < Board.DEFAULT_TABLE_LENGTH) {
-            result.add("_ _ _ _"); // TODO: same number of "_" as DEFAULT_ROW_LENGTH
+            result.add(new String(new char[Board.DEFAULT_ROW_LENGTH]).replace("\0", "_ ")); // TODO: same number of "_" as DEFAULT_ROW_LENGTH
         }
 
-        result.add("? ? ? ?"); // TODO: same number of "?" as DEFAULT_ROW_LENGTH
+        result.add(new String(new char[Board.DEFAULT_ROW_LENGTH]).replace("\0", "? ")); // TODO: same number of "?" as DEFAULT_ROW_LENGTH
 
         Collections.reverse(result);
 
