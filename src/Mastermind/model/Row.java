@@ -43,7 +43,8 @@ public class Row {
         if (this == obj) {
             return true;
         }
-        if (this == null || obj == null || this.getClass() != obj.getClass()) {
+
+        if (obj == null || this.getClass() != obj.getClass()) {
             return false;
         }
 

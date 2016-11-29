@@ -105,4 +105,11 @@ public class RowTest {
 
         Assert.assertTrue(foo.equals(sut));
     }
+
+    @Test
+    public void shouldReturnFalseIfAnyInstanceIsNull() {
+        Row foo = null;
+
+        Assert.assertFalse(sut.equals(foo));
+    }
 }
