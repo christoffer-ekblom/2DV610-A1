@@ -56,6 +56,6 @@ public class MasterController {
     }
 
     public boolean isGameOver() {
-        return false;
+        return true;
     }
 }
