@@ -21,7 +21,7 @@ public class BoardTest {
         Field field = sut.getClass().getDeclaredField("guessHistory");
         field.setAccessible(true);
 
-        Assert.assertEquals(0, ((List<Row>)field.get(sut)).size());
+        Assert.assertEquals(0, ((List<Row>) field.get(sut)).size());
     }
 
     @Test

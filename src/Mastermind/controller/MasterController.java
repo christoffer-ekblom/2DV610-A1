@@ -2,10 +2,7 @@ package Mastermind.controller;
 
 import Mastermind.model.*;
 import Mastermind.view.*;
-import org.apache.commons.lang.NotImplementedException;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class MasterController {
