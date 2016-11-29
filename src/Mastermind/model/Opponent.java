@@ -34,15 +34,15 @@ public class Opponent {
 
         for (int i = 0; i < Board.DEFAULT_ROW_LENGTH; i++) {
             if (guess.getGuesses().get(i) == secretCode.getGuesses().get(i)) {
-                hint.add(KeyPeg.Black);
                 used[i] = true;
-                continue;
+                hint.add(KeyPeg.Black);
             }
+        }
 
-            for (int j = 0; j < Board.DEFAULT_ROW_LENGTH; j++) {
-                if (used[j]) {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (used[j])
                     continue;
-                }
                 if (guess.getGuesses().get(i) == secretCode.getGuesses().get(j)) {
                     used[j] = true;
                     hint.add(KeyPeg.White);
