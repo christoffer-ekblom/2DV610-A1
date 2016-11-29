@@ -8,6 +8,14 @@ Assignment 1. Part 2. XUnit testing
 ### Gameplay example
 ![Gameplay](https://github.com/sticky4loop/2DV610-A1/blob/master/instructions/gameplay_example.png?raw=true)
 
+### How to run
+1. Download "Mastermind.jar" in the executable directory or clone this repo
+2. Open the terminal and input following:
+
+```sh
+$ java -jar path/to/the/Mastermind.jar
+```
+
 ### Contributors
 
 * [Christoffer Ekblom](https://github.com/sticky4loop)
