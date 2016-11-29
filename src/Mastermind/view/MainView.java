@@ -42,10 +42,10 @@ public class MainView {
         }
 
         while (result.size() < Board.DEFAULT_TABLE_LENGTH) {
-            result.add("_ _ _ _");
+            result.add("_ _ _ _"); // TODO: same number of "_" as DEFAULT_ROW_LENGTH
         }
 
-        result.add("? ? ? ?");
+        result.add("? ? ? ?"); // TODO: same number of "?" as DEFAULT_ROW_LENGTH
 
         Collections.reverse(result);
 
