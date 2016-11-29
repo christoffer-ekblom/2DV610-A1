@@ -6,7 +6,7 @@ import java.util.List;
 public class Board {
 
     public static final int DEFAULT_ROW_LENGTH = 4;
-    public static final int DEFAULT_TABLE_LENGTH = 10;
+    public static final int DEFAULT_TABLE_LENGTH = 15;
 
     private List<Row> guessHistory;
 
