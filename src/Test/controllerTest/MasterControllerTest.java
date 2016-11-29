@@ -6,8 +6,10 @@ import Mastermind.view.*;
 
 import org.junit.*;
 
+import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 import static org.mockito.Mockito.*;
 
@@ -59,5 +61,22 @@ public class MasterControllerTest {
         when(board.getGuessHistory()).thenReturn(Arrays.asList(new Row[Board.DEFAULT_TABLE_LENGTH]));
 
         Assert.assertTrue(sut.isGameOver());
+    }
+
+    @Test
+    public void shouldShowCongratulationsOnFindingSecret() throws Exception {
+        String input = "dcdh";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        Scanner sc = new Scanner(System.in);
+
+        when(game.getOpponent()).thenReturn(opponent);
+        when(view.getUserGameInput(sc)).thenReturn(new Row());
+        when(game.getBoard()).thenReturn(board);
+        when(board.getGuessHistory()).thenReturn(new ArrayList<>());
+        when(opponent.checkGuess(null)).thenReturn(true);
+
+        sut.playGame();
+
+        verify(view).showCongratulations();
     }
 }

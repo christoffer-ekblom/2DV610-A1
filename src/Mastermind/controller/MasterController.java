@@ -28,31 +28,23 @@ public class MasterController {
 
     public void playGame() throws Exception {
         Row row;
-        game.newGame();
-        Opponent opponent = game.getOpponent();
-        List<Row> guessHistory = new ArrayList<>();
-        boolean isGameOver = false;
-        boolean isCorrectGuess = false;
+        this.game.newGame();
+        Opponent opponent = this.game.getOpponent();
 
-        while (!isGameOver) {
-            isGameOver = guessHistory.size() >= Board.DEFAULT_TABLE_LENGTH;
+        while (!isGameOver()) {
             this.view.showBoard(this.game.getBoard());
+            this.view.showInstructions();
 
-            if (isCorrectGuess) {
+            row = view.getUserGameInput(new Scanner(System.in));
+            this.game.getBoard().addGuessToBoard(row);
+
+            if (opponent.checkGuess(row)) {
                 this.view.showCongratulations();
                 break;
             }
-
-            if(!isGameOver) {
-                this.view.showInstructions();
-                row = view.getUserGameInput(new Scanner(System.in));
-
-                isCorrectGuess = opponent.checkGuess(row);
-
-                this.game.getBoard().addGuessToBoard(row);
-                guessHistory = this.game.getBoard().getGuessHistory();
-            }
         }
+
+        this.view.showBoard(this.game.getBoard());
     }
 
     public boolean isGameOver() {
