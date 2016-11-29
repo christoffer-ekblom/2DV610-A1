@@ -98,4 +98,11 @@ public class RowTest {
 
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void shouldIfInstancesAreTheSame() {
+        Row foo = row;
+
+        Assert.assertTrue(foo.equals(row));
+    }
 }
