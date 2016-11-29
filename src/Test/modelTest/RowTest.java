@@ -89,7 +89,7 @@ public class RowTest {
     }
 
     @Test
-    public void shouldDisplayBlackHintsFirst() throws Exception {
+    public void shouldAlwaysDisplayBlackHintsFirst() throws Exception {
         List<KeyPeg> keyPegs = new ArrayList<>(Arrays.asList(KeyPeg.White, KeyPeg.White, KeyPeg.Black, KeyPeg.Black));
         Row sut = new Row(symbolPegs, keyPegs);
 
