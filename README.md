@@ -5,8 +5,12 @@
 
 Assignment 1. Part 2. XUnit testing
 
-### Gameplay example
-![Gameplay](https://github.com/sticky4loop/2DV610-A1/blob/master/instructions/gameplay_example.png?raw=true)
+### Gameplay examples
+#### Example 1
+![Gameplay example 1](https://github.com/sticky4loop/2DV610-A1/blob/master/instructions/gameplay_example.png?raw=true)
+
+#### Example 2
+![Gameplay example 2](https://github.com/sticky4loop/2DV610-A1/blob/master/instructions/gameplay_example2.png?raw=true)
 
 ### How to run
 1. Download "Mastermind.jar" in the executable directory or clone this repo
