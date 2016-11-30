@@ -5,6 +5,11 @@
 
 Assignment 1. Part 2. XUnit testing
 
+### Contributors
+
+* [Christoffer Ekblom](https://github.com/sticky4loop)
+* [Tomas Rasmussen-Vaedelund](https://github.com/tr222cj)
+
 ### Gameplay examples
 #### Example 1
 ![Gameplay example 1](https://github.com/sticky4loop/2DV610-A1/blob/master/instructions/gameplay_example.png?raw=true)
@@ -20,17 +25,12 @@ Assignment 1. Part 2. XUnit testing
 $ java -jar path/to/the/Mastermind.jar
 ```
 
-### Contributors
-
-* [Christoffer Ekblom](https://github.com/sticky4loop)
-* [Tomas Rasmussen-Vaedelund](https://github.com/tr222cj)
+### UML-diagram
+![UML Diagram](https://github.com/sticky4loop/2DV610-A1/blob/master/docs/MasterMind-ClassDiagram.png?raw=true)
 
 ### Tech
 * Language: [Java]
 * Editor: [IntelliJ]
-
-### Docs
-* [Domain model](https://www.draw.io/?state=%7B%22ids%22:%5B%220B6z8JWFl9m9cRk5BVUNWbmw2Vmc%22%5D,%22action%22:%22open%22,%22userId%22:%22104890883417214251592%22%7D#G0B6z8JWFl9m9cRk5BVUNWbmw2Vmc)
 
 [Java]: <https://docs.oracle.com/javase/tutorial/>
 [IntelliJ]: <https://www.jetbrains.com/idea/>
