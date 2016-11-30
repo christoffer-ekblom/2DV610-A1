@@ -1,7 +1,6 @@
 package Mastermind.model;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -35,7 +34,7 @@ public class Opponent {
         List<KeyPeg> hint = new ArrayList<>();
 
         if (guess.getGuesses().equals(secretCode.getGuesses())) {
-            for(int i = 0; i < Board.DEFAULT_ROW_LENGTH; i++) {
+            for (int i = 0; i < Board.DEFAULT_ROW_LENGTH; i++) {
                 hint.add(KeyPeg.Black);
             }
 

@@ -1,7 +1,6 @@
 package Test.viewTest;
 
 import Mastermind.model.Board;
-import Mastermind.model.Opponent;
 import Mastermind.model.Row;
 import Mastermind.model.SymbolPeg;
 import Mastermind.view.*;
@@ -87,7 +86,7 @@ public class MainViewTest {
         secretCode.add(SymbolPeg.Diamond);
         secretCode.add(SymbolPeg.Diamond);
 
-        Row row =  new Row(secretCode);
+        Row row = new Row(secretCode);
 
         when(board.getSecretCode()).thenReturn(row);
 
