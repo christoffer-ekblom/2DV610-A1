@@ -43,7 +43,11 @@ public class MainView {
             result.add(new String(new char[Board.DEFAULT_ROW_LENGTH]).replace("\0", "_ "));
         }
 
-        result.add(new String(new char[Board.DEFAULT_ROW_LENGTH]).replace("\0", "? "));
+        if(board.isGameOver()) {
+            result.add("d d d d");
+        } else {
+            result.add(new String(new char[Board.DEFAULT_ROW_LENGTH]).replace("\0", "? "));
+        }
 
         Collections.reverse(result);
 
