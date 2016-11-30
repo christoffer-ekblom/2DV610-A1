@@ -98,6 +98,16 @@ public class OpponentTest {
     }
 
     @Test
+    public void shouldGenerateFourBlackPegs() throws Exception {
+        List<SymbolPeg> secrets = new ArrayList<>(Arrays.asList(SymbolPeg.Diamond, SymbolPeg.Diamond, SymbolPeg.Diamond, SymbolPeg.Diamond));
+        List<SymbolPeg> guesses = secrets;
+
+        List<KeyPeg> expected = new ArrayList<>(Arrays.asList(KeyPeg.Black, KeyPeg.Black, KeyPeg.Black, KeyPeg.Black));
+
+        checkHint(guesses, secrets, expected);
+    }
+
+    @Test
     public void shouldReturnTrueIfGuessEqualsSecret() throws Exception {
         List<SymbolPeg> secrets = new ArrayList<>(Arrays.asList(SymbolPeg.Club, SymbolPeg.Diamond, SymbolPeg.Club, SymbolPeg.Club));
         List<SymbolPeg> guesses = new ArrayList<>(Arrays.asList(SymbolPeg.Club, SymbolPeg.Diamond, SymbolPeg.Club, SymbolPeg.Club));
@@ -107,6 +117,10 @@ public class OpponentTest {
         field.set(sut, new Row(secrets));
 
         Assert.assertTrue(sut.checkGuess(new Row(guesses)));
+
+        List<KeyPeg> expected = new ArrayList<>(Arrays.asList(KeyPeg.Black, KeyPeg.Black, KeyPeg.Black, KeyPeg.Black));
+
+        checkHint(guesses, secrets, expected);
     }
 
     private void checkHint(List<SymbolPeg> guesses, List<SymbolPeg> secrets, List<KeyPeg> expected) throws Exception {
