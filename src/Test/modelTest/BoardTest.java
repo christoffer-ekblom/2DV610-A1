@@ -5,7 +5,11 @@ import Mastermind.model.*;
 import org.junit.*;
 
 import java.lang.reflect.Field;
+import java.util.LinkedList;
 import java.util.List;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class BoardTest {
 
@@ -29,6 +33,24 @@ public class BoardTest {
         List<Row> actual = sut.getGuessHistory();
 
         Assert.assertNotNull(actual);
+    }
+
+    @Test
+    public void shouldGetSecretCodeFromOpponent() throws Exception {
+        List<SymbolPeg> code = new LinkedList<>();
+        code.add(SymbolPeg.Club);
+        code.add(SymbolPeg.Club);
+        code.add(SymbolPeg.Club);
+        code.add(SymbolPeg.Club);
+
+        Row expected = new Row(code);
+
+        Opponent opponent = mock(Opponent.class);
+        when(opponent.getSecretCodeAndChangeIt()).thenReturn(expected);
+
+        Row actual = sut.getSecretCodeFromOpponent(opponent);
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
