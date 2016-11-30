@@ -5,11 +5,8 @@ import Mastermind.model.*;
 import org.junit.*;
 
 import java.lang.reflect.Field;
-import java.util.LinkedList;
+import java.util.Arrays;
 import java.util.List;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class BoardTest {
 
@@ -42,6 +39,16 @@ public class BoardTest {
         sut.addGuessToBoard(new Row());
 
         int actual = sut.getGuessHistory().size();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldReturnSecretCode() throws Exception {
+        Row expected = new Row(Arrays.asList(SymbolPeg.Heart));
+        sut.setSecretCode(expected);
+
+        Row actual = sut.getSecretCode();
 
         Assert.assertEquals(expected, actual);
     }
