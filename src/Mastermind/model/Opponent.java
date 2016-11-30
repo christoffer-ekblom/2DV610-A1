@@ -22,9 +22,9 @@ public class Opponent {
     }
 
     public Row getSecretCodeAndChangeIt() throws Exception {
-        List<SymbolPeg> code = new ArrayList<>();
-        code.add(SymbolPeg.Club);
-        return new Row(code);
+        Row code = secretCode;
+        this.generateSecretCode();
+        return code;
     }
 
     public boolean checkGuess(Row guess) throws Exception {
