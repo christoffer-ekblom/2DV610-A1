@@ -8,13 +8,13 @@ public class Board {
 
     public static final int DEFAULT_ROW_LENGTH = 4;
     public static final int DEFAULT_TABLE_LENGTH = 15;
-
-    private boolean isGameOver = false;
+    private Row secretCode;
 
     private List<Row> guessHistory;
 
     public Board() {
         guessHistory = new ArrayList<>();
+        secretCode = null;
     }
 
     public List<Row> getGuessHistory() {
@@ -25,15 +25,11 @@ public class Board {
         guessHistory.add(guess);
     }
 
-    public Row getSecretCodeFromOpponent(Opponent opponent) throws Exception {
-        return opponent.getSecretCodeAndChangeIt();
+    public Row getSecretCode() {
+        return this.secretCode;
     }
 
-    public boolean isGameOver() {
-        return this.isGameOver;
-    }
-
-    public void setGameOver() {
-        this.isGameOver = true;
+    public void setSecretCode(Row secretCode) {
+        this.secretCode = secretCode;
     }
 }

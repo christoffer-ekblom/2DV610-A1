@@ -80,7 +80,6 @@ public class MainViewTest {
     @Test
     public void shouldDisplaySecretCodeOnGameOver() throws Exception {
         Board board = mock(Board.class);
-        Opponent opponent = mock(Opponent.class);
 
         List<SymbolPeg> secretCode = new ArrayList<>();
         secretCode.add(SymbolPeg.Diamond);
@@ -88,10 +87,9 @@ public class MainViewTest {
         secretCode.add(SymbolPeg.Diamond);
         secretCode.add(SymbolPeg.Diamond);
 
-        Row row = new Row(secretCode);
+        Row row =  new Row(secretCode);
 
-        when(board.isGameOver()).thenReturn(true);
-        when(opponent.getSecretCodeAndChangeIt()).thenReturn(row);
+        when(board.getSecretCode()).thenReturn(row);
 
         String expected = "d d d d";
 

@@ -41,6 +41,11 @@ public class MasterController {
             }
         }
 
+        Board board = game.getBoard();
+        Opponent op = this.game.getOpponent();
+        Row code = op.getSecretCodeAndChangeIt();
+        board.setSecretCode(code);
+
         this.view.showBoard(this.game.getBoard());
     }
 

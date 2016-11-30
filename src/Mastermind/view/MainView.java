@@ -43,8 +43,8 @@ public class MainView {
             result.add(new String(new char[Board.DEFAULT_ROW_LENGTH]).replace("\0", "_ "));
         }
 
-        if(board.isGameOver()) {
-            result.add("d d d d");
+        if(board.getSecretCode() != null) {
+            result.add(board.getSecretCode().toString());
         } else {
             result.add(new String(new char[Board.DEFAULT_ROW_LENGTH]).replace("\0", "? "));
         }

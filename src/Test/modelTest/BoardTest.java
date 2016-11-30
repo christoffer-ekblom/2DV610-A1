@@ -36,24 +36,6 @@ public class BoardTest {
     }
 
     @Test
-    public void shouldGetSecretCodeFromOpponent() throws Exception {
-        List<SymbolPeg> code = new LinkedList<>();
-        code.add(SymbolPeg.Club);
-        code.add(SymbolPeg.Club);
-        code.add(SymbolPeg.Club);
-        code.add(SymbolPeg.Club);
-
-        Row expected = new Row(code);
-
-        Opponent opponent = mock(Opponent.class);
-        when(opponent.getSecretCodeAndChangeIt()).thenReturn(expected);
-
-        Row actual = sut.getSecretCodeFromOpponent(opponent);
-
-        Assert.assertEquals(expected, actual);
-    }
-
-    @Test
     public void shouldAddGuessToBoard() {
         int expected = sut.getGuessHistory().size() + 1;
 
@@ -62,11 +44,5 @@ public class BoardTest {
         int actual = sut.getGuessHistory().size();
 
         Assert.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldSetGameOver() {
-        sut.setGameOver();
-        Assert.assertTrue(sut.isGameOver());
     }
 }
