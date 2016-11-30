@@ -1,6 +1,7 @@
 package Test.viewTest;
 
 import Mastermind.model.Board;
+import Mastermind.model.Opponent;
 import Mastermind.model.Row;
 import Mastermind.model.SymbolPeg;
 import Mastermind.view.*;
@@ -13,6 +14,7 @@ import java.io.ByteArrayInputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class MainViewTest {
@@ -71,6 +73,32 @@ public class MainViewTest {
         for (int i = 0; i < Board.DEFAULT_TABLE_LENGTH; i++) {
             expected += "\n_ _ _ _ ";
         }
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldDisplaySecretCodeOnGameOver() throws Exception {
+        Board board = mock(Board.class);
+        Opponent opponent = mock(Opponent.class);
+
+        List<SymbolPeg> secretCode = new ArrayList<>();
+        secretCode.add(SymbolPeg.Diamond);
+        secretCode.add(SymbolPeg.Diamond);
+        secretCode.add(SymbolPeg.Diamond);
+        secretCode.add(SymbolPeg.Diamond);
+
+        Row row = new Row(secretCode);
+
+        when(board.isGameOver()).thenReturn(true);
+        when(opponent.getSecretCodeAndChangeIt()).thenReturn(row);
+
+        String expected = "d d d d";
+
+        String actual = sut.getBoardGraphics(board);
+
+        int rowLengthWithSpaces = Board.DEFAULT_ROW_LENGTH * 2 - 1;
+        actual = actual.substring(0, rowLengthWithSpaces);
 
         Assert.assertEquals(expected, actual);
     }
