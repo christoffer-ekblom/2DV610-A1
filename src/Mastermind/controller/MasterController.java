@@ -33,7 +33,7 @@ public class MasterController {
             this.view.showInstructions();
 
             row = view.getUserGameInput(new Scanner(System.in));
-            this.game.getBoard().addGuessToBoard(row);
+            this.game.getBoard().addGuess(row);
 
             if (opponent.checkGuess(row)) {
                 this.view.showCongratulations();

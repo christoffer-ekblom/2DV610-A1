@@ -13,11 +13,11 @@ public enum SymbolPeg {
     Bishop("b", 6),
     Rook("r", 7);
 
-    private final String shortCode;
-    private final int value;
+    private String shortCode;
+    private int value;
 
-    SymbolPeg(String shortCode, int value) {
-        this.shortCode = shortCode;
+    SymbolPeg(String shortcode, int value) {
+        shortCode = shortcode;
         this.value = value;
     }
 
@@ -44,7 +44,7 @@ public enum SymbolPeg {
     public static List<SymbolPeg> getByString(String str) throws Exception {
         List<SymbolPeg> symbolPegs = new ArrayList<>();
 
-        if (!isValidUserInput(str)) {
+        if (!isValidInput(str)) {
             throw new Exception();
         }
 
@@ -59,7 +59,7 @@ public enum SymbolPeg {
         return symbolPegs;
     }
 
-    public static boolean isValidUserInput(String input) {
+    public static boolean isValidInput(String input) {
         if (input.length() != Board.DEFAULT_ROW_LENGTH) {
             return false;
         }
@@ -75,7 +75,7 @@ public enum SymbolPeg {
         return input.matches(validCharacters);
     }
 
-    public String getShortCode() {
+    public String getshortcode() {
         return shortCode;
     }
 }

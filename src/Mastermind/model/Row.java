@@ -59,14 +59,14 @@ public class Row {
         List<String> hints = new ArrayList<>();
 
         for (SymbolPeg peg : this.guesses) {
-            guesses.add(peg.getShortCode());
+            guesses.add(peg.getshortcode());
         }
 
         String result = String.join(" ", guesses);
 
         if (this.hints.size() > 0) {
             for (KeyPeg peg : this.hints) {
-                hints.add(peg.toShortString());
+                hints.add(peg.toString());
             }
 
             hints.sort(Comparator.reverseOrder());

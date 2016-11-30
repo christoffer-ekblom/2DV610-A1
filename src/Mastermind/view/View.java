@@ -10,7 +10,7 @@ public class View {
     private PrintStream out;
 
     public final static String WELCOME = "Welcome to a game of Mastermind";
-    public final static String INSTRUCTIONS = View.menuText();
+    public final static String INSTRUCTIONS = View.getMenuText();
     public final static String QUIT = "Thank you for playing Mastermind and welcome back anytime";
     public final static String CONGRATS = "Well done! You found the secret code :)";
 
@@ -54,7 +54,21 @@ public class View {
         return String.join("\n", result);
     }
 
-    private static String menuText() {
+    public void showCongratulations() {
+        out.println(this.CONGRATS);
+    }
+
+    public Row getUserGameInput(Scanner sc) throws Exception {
+        String value;
+
+        do {
+            value = sc.nextLine();
+        } while (!SymbolPeg.isValidInput(value));
+
+        return new Row(SymbolPeg.getByString(value));
+    }
+    
+    private static String getMenuText() {
         String output = "\nInstructions:\nEnter your guess. For example: \"dhcs\".\n";
 
         List<String> shortcuts = new ArrayList<>();
@@ -71,19 +85,5 @@ public class View {
         output += "\n";
 
         return output;
-    }
-
-    public Row getUserGameInput(Scanner sc) throws Exception {
-        String value;
-
-        do {
-            value = sc.nextLine();
-        } while (!SymbolPeg.isValidUserInput(value));
-
-        return new Row(SymbolPeg.getByString(value));
-    }
-
-    public void showCongratulations() {
-        out.println(this.CONGRATS);
     }
 }

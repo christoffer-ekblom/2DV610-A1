@@ -54,7 +54,7 @@ public class SymbolPegTest {
     @Test
     public void shouldReturnCorrectShortValue() {
         String expected = "c";
-        String actual = SymbolPeg.Club.getShortCode();
+        String actual = SymbolPeg.Club.getshortcode();
 
         Assert.assertEquals(expected, actual);
     }

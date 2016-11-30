@@ -36,7 +36,7 @@ public class BoardTest {
     public void shouldAddGuessToBoard() {
         int expected = sut.getGuessHistory().size() + 1;
 
-        sut.addGuessToBoard(new Row());
+        sut.addGuess(new Row());
 
         int actual = sut.getGuessHistory().size();
 

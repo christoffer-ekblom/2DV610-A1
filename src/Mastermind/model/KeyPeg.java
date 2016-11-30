@@ -10,7 +10,8 @@ public enum KeyPeg {
         this.shortName = shortName;
     }
 
-    public String toShortString() {
+    @Override
+    public String toString() {
         return this.shortName;
     }
 }

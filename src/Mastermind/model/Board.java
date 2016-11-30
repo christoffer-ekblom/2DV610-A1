@@ -20,7 +20,7 @@ public class Board {
         return guessHistory;
     }
 
-    public void addGuessToBoard(Row guess) {
+    public void addGuess(Row guess) {
         guessHistory.add(guess);
     }
 
