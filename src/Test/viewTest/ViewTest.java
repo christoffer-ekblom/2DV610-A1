@@ -16,14 +16,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class MainViewTest {
-    private MainView sut;
+public class ViewTest {
+    private View sut;
     private PrintStream printStream;
 
     @Before
     public void setUp() {
         printStream = mock(PrintStream.class);
-        sut = new MainView(printStream);
+        sut = new View(printStream);
     }
 
     @Test

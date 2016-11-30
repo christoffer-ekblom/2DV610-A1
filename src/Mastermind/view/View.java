@@ -5,16 +5,16 @@ import Mastermind.model.*;
 import java.io.PrintStream;
 import java.util.*;
 
-public class MainView {
+public class View {
 
     private PrintStream out;
 
     public final static String WELCOME = "Welcome to a game of Mastermind";
-    public final static String INSTRUCTIONS = MainView.menuText();
+    public final static String INSTRUCTIONS = View.menuText();
     public final static String QUIT = "Thank you for playing Mastermind and welcome back anytime";
     public final static String CONGRATS = "Well done! You found the secret code :)";
 
-    public MainView(PrintStream output) {
+    public View(PrintStream output) {
         this.out = output;
     }
 

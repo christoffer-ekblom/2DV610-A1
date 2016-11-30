@@ -7,10 +7,10 @@ import java.util.Scanner;
 
 public class MasterController {
 
-    private MainView view;
+    private View view;
     private Game game;
 
-    public MasterController(MainView view, Game game) {
+    public MasterController(View view, Game game) {
         this.view = view;
         this.game = game;
     }

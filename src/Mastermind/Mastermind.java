@@ -13,7 +13,7 @@ public class Mastermind {
     }
 
     public static void main(String[] a_args) throws Exception {
-        MainView view = new MainView(System.out);
+        View view = new View(System.out);
         Opponent opponent = new Opponent();
         Board board = new Board();
         Game game = new Game(opponent, board);

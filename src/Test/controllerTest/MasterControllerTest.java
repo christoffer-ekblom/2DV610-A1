@@ -15,7 +15,7 @@ import static org.mockito.Mockito.*;
 
 public class MasterControllerTest {
 
-    private MainView view;
+    private View view;
     private Game game;
     private Opponent opponent;
     private MasterController sut;
@@ -23,7 +23,7 @@ public class MasterControllerTest {
 
     @Before
     public void setUp() {
-        view = mock(MainView.class);
+        view = mock(View.class);
         game = mock(Game.class);
         opponent = mock(Opponent.class);
         board = mock(Board.class);
