@@ -34,6 +34,6 @@ public class Board {
     }
 
     public void setGameOver() {
-        
+        this.isGameOver = true;
     }
 }
