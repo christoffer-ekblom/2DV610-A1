@@ -25,11 +25,17 @@ public class Opponent {
             throw new Exception();
         }
 
+        List<KeyPeg> hint = new ArrayList<>();
+
         if (guess.getGuesses().equals(secretCode.getGuesses())) {
+            for(int i = 0; i < Board.DEFAULT_ROW_LENGTH; i++) {
+                hint.add(KeyPeg.Black);
+            }
+
+            guess.setHint(hint);
             return true;
         }
 
-        List<KeyPeg> hint = new ArrayList<>();
         boolean[] used = new boolean[Board.DEFAULT_ROW_LENGTH];
 
         for (int i = 0; i < Board.DEFAULT_ROW_LENGTH; i++) {
