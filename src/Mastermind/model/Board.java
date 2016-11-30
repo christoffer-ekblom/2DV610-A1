@@ -9,6 +9,8 @@ public class Board {
     public static final int DEFAULT_ROW_LENGTH = 4;
     public static final int DEFAULT_TABLE_LENGTH = 15;
 
+    private boolean isGameOver = false;
+
     private List<Row> guessHistory;
 
     public Board() {
@@ -25,5 +27,13 @@ public class Board {
 
     public Row getSecretCodeFromOpponent(Opponent opponent) throws Exception {
         return opponent.getSecretCodeAndChangeIt();
+    }
+
+    public boolean isGameOver() {
+        return this.isGameOver;
+    }
+
+    public void setGameOver() {
+        
     }
 }

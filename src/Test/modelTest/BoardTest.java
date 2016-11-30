@@ -63,4 +63,10 @@ public class BoardTest {
 
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void shouldSetGameOver() {
+        sut.setGameOver();
+        Assert.assertTrue(sut.isGameOver());
+    }
 }
