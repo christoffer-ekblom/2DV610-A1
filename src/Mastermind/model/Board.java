@@ -24,8 +24,6 @@ public class Board {
     }
 
     public Row getSecretCodeFromOpponent(Opponent opponent) throws Exception {
-        List<SymbolPeg> code = new LinkedList<>();
-        code.add(SymbolPeg.Club);
-        return new Row(code);
+        return opponent.getSecretCodeAndChangeIt();
     }
 }
