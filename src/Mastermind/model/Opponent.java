@@ -1,6 +1,7 @@
 package Mastermind.model;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -18,6 +19,12 @@ public class Opponent {
         List<SymbolPeg> symbolPegs = SymbolPeg.getByInteger(secret);
 
         secretCode = new Row(symbolPegs);
+    }
+
+    public Row getSecretCodeAndChangeIt() throws Exception {
+        List<SymbolPeg> code = new ArrayList<>();
+        code.add(SymbolPeg.Club);
+        return new Row(code);
     }
 
     public boolean checkGuess(Row guess) throws Exception {

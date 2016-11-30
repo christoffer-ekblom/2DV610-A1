@@ -123,6 +123,22 @@ public class OpponentTest {
         checkHint(guesses, secrets, expected);
     }
 
+    @Test
+    public void shouldGetSecretCodeAndChangeIt() throws Exception {
+        List<SymbolPeg> secrets = new ArrayList<>(Arrays.asList(SymbolPeg.Club, SymbolPeg.Club, SymbolPeg.Club, SymbolPeg.Club));
+        Row expected = new Row(secrets);
+
+        Field field = Opponent.class.getDeclaredField("secretCode");
+        field.setAccessible(true);
+        field.set(sut, new Row(secrets));
+
+        Row actual = sut.getSecretCodeAndChangeIt();
+
+        Assert.assertEquals(expected, actual);
+
+        Assert.assertNotEquals(expected, sut.getSecretCodeAndChangeIt());
+    }
+
     private void checkHint(List<SymbolPeg> guesses, List<SymbolPeg> secrets, List<KeyPeg> expected) throws Exception {
         Row guess = spy(Row.class);
 
