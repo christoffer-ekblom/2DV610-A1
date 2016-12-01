@@ -10,12 +10,9 @@ Assignment 1. Part 2. XUnit testing
 * [Christoffer Ekblom](https://github.com/sticky4loop)
 * [Tomas Rasmussen-Vaedelund](https://github.com/tr222cj)
 
-### Gameplay examples
-#### Example 1
-![Gameplay example 1](https://github.com/sticky4loop/2DV610-A1/blob/master/instructions/gameplay_example.png?raw=true)
+### Gameplay example
+![Gameplay example](https://github.com/sticky4loop/2DV610-A1/blob/master/instructions/gameplay.gif?raw=true)
 
-#### Example 2
-![Gameplay example 2](https://github.com/sticky4loop/2DV610-A1/blob/master/instructions/gameplay_example2.png?raw=true)
 
 ### How to run
 1. Download "Mastermind.jar" in the executable directory or clone this repo
