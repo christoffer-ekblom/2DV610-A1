@@ -1,7 +1,7 @@
 [![Ready](https://badge.waffle.io/sticky4loop/2DV610-A1.2.svg?label=ready&title=Ready)](http://waffle.io/sticky4loop/2DV610-A1.2)
 [![In progress](https://badge.waffle.io/sticky4loop/2DV610-A1.2.svg?label=in%20progress&title=In%20progress)](http://waffle.io/sticky4loop/2DV610-A1.2)
 
-# Mastermind
+![Mastermind](https://github.com/sticky4loop/2DV610-A1/blob/master/logo.png?raw=true)
 
 Assignment 1. Part 2. XUnit testing
 
