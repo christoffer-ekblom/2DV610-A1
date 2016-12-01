@@ -10,9 +10,11 @@ Assignment 1. Part 2. XUnit testing
 * [Christoffer Ekblom](https://github.com/sticky4loop)
 * [Tomas Rasmussen-Vaedelund](https://github.com/tr222cj)
 
+### How to play
+[Wikipedia]
+
 ### Gameplay example
 ![Gameplay example](https://github.com/sticky4loop/2DV610-A1/blob/master/instructions/gameplay.gif?raw=true)
-
 
 ### How to run
 1. Download "Mastermind.jar" in the executable directory or clone this repo
@@ -29,5 +31,6 @@ $ java -jar path/to/the/Mastermind.jar
 * Language: [Java]
 * Editor: [IntelliJ]
 
+[Wikipedia]: <https://en.wikipedia.org/wiki/Mastermind_(board_game)>
 [Java]: <https://docs.oracle.com/javase/tutorial/>
 [IntelliJ]: <https://www.jetbrains.com/idea/>
