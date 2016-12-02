@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class Opponent {
     private Row secretCode;
+    private Row guess;
     private int rowLength = Board.DEFAULT_ROW_LENGTH;
 
     public void generateSecretCode() throws Exception {
@@ -27,37 +28,28 @@ public class Opponent {
         return code;
     }
 
-    public boolean checkGuess(Row guess) throws Exception {
-        if (guess.equals(null)) {
-            throw new Exception();
-        }
-
+    public boolean checkGuess(Row guess) {
         List<KeyPeg> hint = new ArrayList<>();
-        boolean[] used = new boolean[rowLength];
+        this.guess = guess;
 
         for(int i = 0; i < rowLength; i++) {
-            used[i] = guess.getGuesses().get(i) == secretCode.getGuesses().get(i);
-        }
-
-        for(int i = 0; i < rowLength; i++) {
-            if(!used[i]) {
+            if(check(i)) {
                 for(int k = 0; k < rowLength; k++) {
-                    if(guess.getGuesses().get(i) == secretCode.getGuesses().get(k) && !used[k]) {
+                    if(guess.getGuesses().get(i) == secretCode.getGuesses().get(k) && check(k)) {
                         hint.add(KeyPeg.White);
-                        break;
                     }
                 }
+                continue;
             }
-        }
-
-        for(int i = 0; i < rowLength; i++) {
-            if(guess.getGuesses().get(i) == secretCode.getGuesses().get(i)) {
-                hint.add(KeyPeg.Black);
-            }
+            hint.add(KeyPeg.Black);
         }
 
         guess.setHint(hint);
 
         return guess.equals(secretCode);
+    }
+
+    private boolean check(int i) {
+        return !(guess.getGuesses().get(i) == secretCode.getGuesses().get(i));
     }
 }
