@@ -33,15 +33,15 @@ public class Opponent {
         this.guess = guess;
 
         for(int i = 0; i < rowLength; i++) {
-            if(check(i)) {
-                for(int k = 0; k < rowLength; k++) {
-                    if(guess.getGuesses().get(i) == secretCode.getGuesses().get(k) && check(k)) {
-                        hint.add(KeyPeg.White);
-                    }
-                }
+            if(correctColorCorrectPosition(i)) {
+                hint.add(KeyPeg.Black);
                 continue;
             }
-            hint.add(KeyPeg.Black);
+            for(int k = 0; k < rowLength; k++) {
+                if(correctColorWrongPosition(i, k)) {
+                    hint.add(KeyPeg.White);
+                }
+            }
         }
 
         guess.setHint(hint);
@@ -49,7 +49,15 @@ public class Opponent {
         return guess.equals(secretCode);
     }
 
-    private boolean check(int i) {
-        return !(guess.getGuesses().get(i) == secretCode.getGuesses().get(i));
+    private boolean correctColorWrongPosition(int i, int k) {
+        return equal(i, k) && !correctColorCorrectPosition(k);
+    }
+
+    private boolean correctColorCorrectPosition(int i) {
+        return equal(i, i);
+    }
+
+    private boolean equal(int i, int k) {
+        return guess.getGuesses().get(i) == secretCode.getGuesses().get(k);
     }
 }
