@@ -98,6 +98,15 @@ public class OpponentTest {
     }
 
     @Test
+    public void shouldGenerateFourWhitePegs() throws Exception {
+        List<SymbolPeg> guesses = new ArrayList<>(Arrays.asList(SymbolPeg.Diamond, SymbolPeg.Heart, SymbolPeg.Club, SymbolPeg.Spade));
+        List<SymbolPeg> secrets = new ArrayList<>(Arrays.asList(SymbolPeg.Heart, SymbolPeg.Club, SymbolPeg.Spade, SymbolPeg.Diamond));
+        List<KeyPeg> expected = new ArrayList<>(Arrays.asList(KeyPeg.White, KeyPeg.White, KeyPeg.White, KeyPeg.White));
+
+        checkHint(guesses, secrets, expected);
+    }
+
+    @Test
     public void shouldGenerateFourBlackPegs() throws Exception {
         List<SymbolPeg> secrets = new ArrayList<>(Arrays.asList(SymbolPeg.Diamond, SymbolPeg.Diamond, SymbolPeg.Diamond, SymbolPeg.Diamond));
         List<SymbolPeg> guesses = secrets;
