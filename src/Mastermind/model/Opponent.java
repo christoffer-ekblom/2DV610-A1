@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class Opponent {
     private Row secretCode;
+    private int rowLength = Board.DEFAULT_ROW_LENGTH;
 
     public void generateSecretCode() throws Exception {
         List<Integer> secret = new ArrayList<>();
@@ -27,34 +28,29 @@ public class Opponent {
     }
 
     public boolean checkGuess(Row guess) throws Exception {
-        if (guess == null || guess.getGuesses() == null) {
+        if (guess.equals(null)) {
             throw new Exception();
         }
 
         List<KeyPeg> hint = new ArrayList<>();
-        boolean[] incorrect = {true, true, true, true};
-        boolean[] untaken = {true, true, true, true};
+        boolean[] used = new boolean[rowLength];
 
-        for(int i = 0; i < Board.DEFAULT_ROW_LENGTH; i++) {
-            if(guess.getGuesses().get(i) == secretCode.getGuesses().get(i)) {
-                incorrect[i] = false;
-                untaken[i] = false;
-            }
+        for(int i = 0; i < rowLength; i++) {
+            used[i] = guess.getGuesses().get(i) == secretCode.getGuesses().get(i);
         }
 
-        for(int i = 0; i < Board.DEFAULT_ROW_LENGTH; i++) {
-            if(incorrect[i]) {
-                for(int k = 0; k < Board.DEFAULT_ROW_LENGTH; k++) {
-                    if(guess.getGuesses().get(i) == secretCode.getGuesses().get(k) && untaken[k]) {
+        for(int i = 0; i < rowLength; i++) {
+            if(!used[i]) {
+                for(int k = 0; k < rowLength; k++) {
+                    if(guess.getGuesses().get(i) == secretCode.getGuesses().get(k) && !used[k]) {
                         hint.add(KeyPeg.White);
-                        untaken[k]=false;
-                        k = Board.DEFAULT_ROW_LENGTH + 1;
+                        break;
                     }
                 }
             }
         }
 
-        for(int i = 0; i < Board.DEFAULT_ROW_LENGTH; i++) {
+        for(int i = 0; i < rowLength; i++) {
             if(guess.getGuesses().get(i) == secretCode.getGuesses().get(i)) {
                 hint.add(KeyPeg.Black);
             }
@@ -62,10 +58,6 @@ public class Opponent {
 
         guess.setHint(hint);
 
-        if(guess.equals(secretCode)) {
-            return true;
-        }
-
-        return false;
+        return guess.equals(secretCode);
     }
 }
