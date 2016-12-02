@@ -108,6 +108,16 @@ public class OpponentTest {
     }
 
     @Test
+    public void shouldGenerateTwoBlackPegs() throws Exception {
+        List<SymbolPeg> secrets = new ArrayList<>(Arrays.asList(SymbolPeg.Bishop, SymbolPeg.Rook, SymbolPeg.Bishop, SymbolPeg.Queen));
+        List<SymbolPeg> guesses = new ArrayList<>(Arrays.asList(SymbolPeg.Bishop, SymbolPeg.Rook, SymbolPeg.Spade, SymbolPeg.Spade));
+
+        List<KeyPeg> expected = new ArrayList<>(Arrays.asList(KeyPeg.Black, KeyPeg.Black));
+
+        checkHint(guesses, secrets, expected);
+    }
+
+    @Test
     public void shouldReturnTrueIfGuessEqualsSecret() throws Exception {
         List<SymbolPeg> secrets = new ArrayList<>(Arrays.asList(SymbolPeg.Club, SymbolPeg.Diamond, SymbolPeg.Club, SymbolPeg.Club));
         List<SymbolPeg> guesses = new ArrayList<>(Arrays.asList(SymbolPeg.Club, SymbolPeg.Diamond, SymbolPeg.Club, SymbolPeg.Club));
