@@ -53,9 +53,10 @@ public class Opponent {
 
         for (int i = 0; i < Board.DEFAULT_ROW_LENGTH; i++) {
             for (int j = 0; j < Board.DEFAULT_ROW_LENGTH; j++) {
-                if (used[j])
+                if (used[j]) {
                     continue;
-                if (guess.getGuesses().get(i) == secretCode.getGuesses().get(j)) {
+                }
+                if (guess.getGuesses().get(i) == secretCode.getGuesses().get(j) && !used[i]) {
                     used[j] = true;
                     hint.add(KeyPeg.White);
                     break;
