@@ -40,6 +40,7 @@ public class Opponent {
             for(int k = 0; k < rowLength; k++) {
                 if(correctColorWrongPosition(i, k)) {
                     hint.add(KeyPeg.White);
+                    break;
                 }
             }
         }
